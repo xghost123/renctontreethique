@@ -80,7 +80,7 @@ const submit = () => {
 
                     <div class="flex items-center justify-between">
                         <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" v-model="form.remember" class="w-4 h-4 rounded border-[#E2DDD5] text-[#1C4532] focus:ring-[#1C4532]" />
+                            <input type="checkbox" v-model="form.remember" class="w-4 h-4 rounded border-[#E2DDD5] text-[#0f3a7d] focus:ring-[#0f3a7d]" />
                             <span class="text-xs text-[#8A9680]">Se souvenir de moi</span>
                         </label>
                         <Link v-if="canResetPassword" :href="route('password.request')" class="forgot-link">Mot de passe oublié ?</Link>

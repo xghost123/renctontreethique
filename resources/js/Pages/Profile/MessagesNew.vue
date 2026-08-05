@@ -103,7 +103,7 @@ onMounted(() => {
 
     <div class="relative max-w-7xl mx-auto px-5 pt-8">
       <div class="mb-8">
-        <h1 class="font-display text-3xl font-medium text-[#1C4532] mb-2" style="font-family: 'Cormorant Garamond', serif">
+        <h1 class="font-display text-3xl font-medium text-[#0f3a7d] mb-2" style="font-family: 'Cormorant Garamond', serif">
           Messages
         </h1>
         <p class="text-sm text-[#8A9680]">
@@ -116,9 +116,9 @@ onMounted(() => {
 
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Conversations Sidebar -->
-        <div class="bg-white rounded-2xl border border-[#1C4532]/[.06] shadow-sm overflow-hidden md:col-span-1">
+        <div class="bg-white rounded-2xl border border-[#0f3a7d]/[.06] shadow-sm overflow-hidden md:col-span-1">
           <!-- Search -->
-          <div class="px-4 py-3.5 border-b border-[#1C4532]/[.06]">
+          <div class="px-4 py-3.5 border-b border-[#0f3a7d]/[.06]">
             <input
               v-model="searchUsers"
               type="text"
@@ -128,30 +128,30 @@ onMounted(() => {
           </div>
 
           <!-- Conversations List -->
-          <div class="divide-y divide-[#1C4532]/[.04] max-h-[680px] overflow-y-auto">
+          <div class="divide-y divide-[#0f3a7d]/[.04] max-h-[680px] overflow-y-auto">
             <button
               v-for="conv in conversations"
               :key="conv.id"
               @click="openConversation(conv.other_id, conv)"
               :class="[
                 'w-full px-4 py-3.5 text-left hover:bg-[#F8F6F0] transition-colors flex items-center gap-3',
-                activeConversationId === conv.id ? 'bg-[#F8F6F0] border-l-2 border-[#1C4532]' : 'border-l-2 border-transparent'
+                activeConversationId === conv.id ? 'bg-[#F8F6F0] border-l-2 border-[#0f3a7d]' : 'border-l-2 border-transparent'
               ]"
             >
               <!-- Avatar -->
-              <div class="w-10 h-10 rounded-full bg-[#1C4532]/[.07] flex items-center justify-center text-[#1C4532] font-bold text-sm flex-shrink-0">
+              <div class="w-10 h-10 rounded-full bg-[#0f3a7d]/[.07] flex items-center justify-center text-[#0f3a7d] font-bold text-sm flex-shrink-0">
                 {{ (conv.other_name || '?').charAt(0).toUpperCase() }}
               </div>
 
               <!-- Info -->
               <div class="flex-1 min-w-0">
                 <div class="flex items-center justify-between">
-                  <span class="font-semibold text-[#1C4532] text-sm truncate">
+                  <span class="font-semibold text-[#0f3a7d] text-sm truncate">
                     {{ conv.other_name }}
                   </span>
                   <span
                     v-if="getUnreadCount(conv.id) > 0"
-                    class="bg-[#C8A028] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                    class="bg-[#ff6b6b] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                   >
                     {{ getUnreadCount(conv.id) }}
                   </span>
@@ -183,13 +183,13 @@ onMounted(() => {
           </template>
 
           <template v-else>
-            <div class="bg-white rounded-2xl border border-[#1C4532]/[.06] shadow-sm h-[600px] flex flex-col items-center justify-center p-10 text-center">
-              <div class="w-16 h-16 rounded-full bg-[#1C4532]/[.06] flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-[#1C4532]" viewBox="0 0 24 24" fill="currentColor">
+            <div class="bg-white rounded-2xl border border-[#0f3a7d]/[.06] shadow-sm h-[600px] flex flex-col items-center justify-center p-10 text-center">
+              <div class="w-16 h-16 rounded-full bg-[#0f3a7d]/[.06] flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#0f3a7d]" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h10v2H7V9zm0 4h7v2H7v-2z" />
                 </svg>
               </div>
-              <h3 class="font-display text-xl font-medium text-[#1C4532] mb-2" style="font-family: 'Cormorant Garamond', serif">
+              <h3 class="font-display text-xl font-medium text-[#0f3a7d] mb-2" style="font-family: 'Cormorant Garamond', serif">
                 Select a conversation
               </h3>
               <p class="text-sm text-[#8A9680] max-w-xs mb-6">
@@ -208,6 +208,6 @@ onMounted(() => {
 
 <style scoped>
 .field-input-re {
-  @apply w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1C4532]/20 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 text-sm;
+  @apply w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f3a7d]/20 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 text-sm;
 }
 </style>

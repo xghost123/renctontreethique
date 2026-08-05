@@ -1,7 +1,7 @@
 <template>
   <section class="py-12 px-4">
     <div class="container mx-auto">
-      <div class="bg-gradient-to-r from-[#0D2218] to-[#1C4532] rounded-lg p-8 md:p-12 text-white relative overflow-hidden">
+      <div class="bg-gradient-to-r from-[#0D2218] to-[#0f3a7d] rounded-lg p-8 md:p-12 text-white relative overflow-hidden">
         <!-- Accent element -->
         <div class="absolute top-0 right-0 w-40 h-40 bg-[#C8A028]/10 rounded-full -mr-20 -mt-20"></div>
         

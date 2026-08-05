@@ -11,7 +11,7 @@
       <textarea
         v-model="form.presentation"
         placeholder="Présentez-vous de manière authentique... (50-500 caractères)"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         rows="6"
         minlength="50"
         maxlength="500"

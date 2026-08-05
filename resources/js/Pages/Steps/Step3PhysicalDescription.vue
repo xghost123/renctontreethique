@@ -11,7 +11,7 @@
       </label>
       <select
         v-model="form.height"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -53,7 +53,7 @@
       </label>
       <select
         v-model="form.skinColor"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -73,7 +73,7 @@
       </label>
       <select
         v-model="form.eyeColor"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -93,7 +93,7 @@
       </label>
       <select
         v-model="form.hair"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -115,7 +115,7 @@
       <textarea
         v-model="form.distinctiveFeatures"
         placeholder="Décrivez les éléments distinctifs..."
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         rows="3"
       ></textarea>
     </div>

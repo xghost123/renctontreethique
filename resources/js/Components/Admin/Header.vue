@@ -222,7 +222,7 @@ header{
     width: 38px;
     height: 38px;
     border-radius: 12px;
-    background: #1C4532;
+    background: #0f3a7d;
     border: 1px solid rgba(200, 160, 40, .3);
     display: flex;
     align-items: center;

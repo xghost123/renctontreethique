@@ -53,14 +53,14 @@ function changeTab(index) {
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <!-- Total Profiles -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-[#C8A028]/40 transition-all">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-[#ff6b6b]/40 transition-all">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-[#C8A028]/70 text-sm font-medium">Total Profiles</p>
+                                <p class="text-[#ff6b6b]/70 text-sm font-medium">Total Profiles</p>
                                 <p class="text-white text-3xl font-bold mt-2">{{ stats.total_profiles }}</p>
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-[#C8A028]/20 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#C8A028]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-12 h-12 rounded-full bg-[#ff6b6b]/20 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-[#ff6b6b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 12H9m6 0a6 6 0 11-12 0 6 6 0 0112 0z" />
                                 </svg>
                             </div>
@@ -122,8 +122,8 @@ function changeTab(index) {
                                 <button :class="[
                                     'px-4 py-2 font-medium text-sm rounded-lg transition-all whitespace-nowrap',
                                     selected 
-                                        ? 'bg-[#C8A028] text-[#0D2218] shadow-lg'
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5'
+                                        ? 'bg-[#ff6b6b] text-[#0D2218] shadow-lg'
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5'
                                 ]">
                                     👥 Biodatas
                                 </button>
@@ -132,8 +132,8 @@ function changeTab(index) {
                                 <button :class="[
                                     'px-4 py-2 font-medium text-sm rounded-lg transition-all whitespace-nowrap',
                                     selected 
-                                        ? 'bg-[#C8A028] text-[#0D2218] shadow-lg'
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5'
+                                        ? 'bg-[#ff6b6b] text-[#0D2218] shadow-lg'
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5'
                                 ]">
                                     💍 Proposals
                                 </button>
@@ -142,8 +142,8 @@ function changeTab(index) {
                                 <button :class="[
                                     'px-4 py-2 font-medium text-sm rounded-lg transition-all whitespace-nowrap',
                                     selected 
-                                        ? 'bg-[#C8A028] text-[#0D2218] shadow-lg'
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5'
+                                        ? 'bg-[#ff6b6b] text-[#0D2218] shadow-lg'
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5'
                                 ]">
                                     ✅ Approved
                                 </button>
@@ -152,8 +152,8 @@ function changeTab(index) {
                                 <button :class="[
                                     'px-4 py-2 font-medium text-sm rounded-lg transition-all whitespace-nowrap',
                                     selected 
-                                        ? 'bg-[#C8A028] text-[#0D2218] shadow-lg'
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5'
+                                        ? 'bg-[#ff6b6b] text-[#0D2218] shadow-lg'
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5'
                                 ]">
                                     ⚙️ Settings
                                 </button>
@@ -164,28 +164,28 @@ function changeTab(index) {
                         <TabPanels class="mt-6">
                             <TabPanel class="text-white">
                                 <div class="bg-white/5 rounded-xl p-6">
-                                    <h3 class="text-xl font-bold text-[#C8A028] mb-4">Biodata Management</h3>
+                                    <h3 class="text-xl font-bold text-[#ff6b6b] mb-4">Biodata Management</h3>
                                     <p class="text-white/60">Manage user profiles and approve/reject submissions.</p>
                                 </div>
                             </TabPanel>
 
                             <TabPanel class="text-white">
                                 <div class="bg-white/5 rounded-xl p-6">
-                                    <h3 class="text-xl font-bold text-[#C8A028] mb-4">Proposal Management</h3>
+                                    <h3 class="text-xl font-bold text-[#ff6b6b] mb-4">Proposal Management</h3>
                                     <p class="text-white/60">Review and manage marriage proposals between members.</p>
                                 </div>
                             </TabPanel>
 
                             <TabPanel class="text-white">
                                 <div class="bg-white/5 rounded-xl p-6">
-                                    <h3 class="text-xl font-bold text-[#C8A028] mb-4">Approved Profiles</h3>
+                                    <h3 class="text-xl font-bold text-[#ff6b6b] mb-4">Approved Profiles</h3>
                                     <p class="text-white/60">View and manage approved member profiles.</p>
                                 </div>
                             </TabPanel>
 
                             <TabPanel class="text-white">
                                 <div class="bg-white/5 rounded-xl p-6">
-                                    <h3 class="text-xl font-bold text-[#C8A028] mb-4">Settings & Configuration</h3>
+                                    <h3 class="text-xl font-bold text-[#ff6b6b] mb-4">Settings & Configuration</h3>
                                     <p class="text-white/60">Configure system settings and manage content.</p>
                                 </div>
                             </TabPanel>

@@ -72,11 +72,11 @@ document.body.classList.add("backend.login");
                 <div class="bg-[#0D2218] px-8 pt-10 pb-8 text-center relative overflow-hidden">
                     <div class="pattern-re absolute inset-0 opacity-[.12] pointer-events-none"></div>
                     <div class="relative">
-                        <div class="inline-flex w-14 h-14 rounded-2xl bg-[#1C4532] border border-[#C8A028]/30 items-center justify-center mb-4 shadow-lg" style="box-shadow: 0 6px 20px rgba(0,0,0,.35)">
+                        <div class="inline-flex w-14 h-14 rounded-2xl bg-[#0f3a7d] border border-[#ff6b6b]/30 items-center justify-center mb-4 shadow-lg" style="box-shadow: 0 6px 20px rgba(0,0,0,.35)">
                             <svg class="w-7 h-7 text-[#E4B84A]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.2 6.2 10.6 7.5 10.6s7.5-5.4 7.5-10.6A7.5 7.5 0 0 0 12 1.5Z"/></svg>
                         </div>
                         <h2 class="font-display text-2xl font-medium text-[#FBF7F0]" style="font-family:'Cormorant Garamond',serif">Rencontre Éthique</h2>
-                        <div class="text-[10px] uppercase tracking-[.22em] text-[#C8A028] mt-1">Espace administration</div>
+                        <div class="text-[10px] uppercase tracking-[.22em] text-[#ff6b6b] mt-1">Espace administration</div>
                     </div>
                 </div>
 
@@ -126,7 +126,7 @@ document.body.classList.add("backend.login");
                     </div>
 
                     <div class="mt-6">
-                        <PrimaryButton class="w-full justify-center !bg-[#1C4532] hover:!bg-[#163828] !rounded-xl !py-3.5 !text-sm" :class="{ 'opacity-25': form.processing }"
+                        <PrimaryButton class="w-full justify-center !bg-[#0f3a7d] hover:!bg-[#163828] !rounded-xl !py-3.5 !text-sm" :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing">
                             {{ translations.login.login_button_text }}
                         </PrimaryButton>

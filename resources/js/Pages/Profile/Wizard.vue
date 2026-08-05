@@ -56,8 +56,8 @@ const prayerLevels = ['Pratiquant', 'Assidu aux 5 prières', 'Occasionnel', 'En 
 
 function pill(active) {
     return active
-        ? 'border-2 border-[#1C4532] bg-[#1C4532] text-white px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all'
-        : 'border-2 border-[#E5E7EB] bg-white text-[#6B7280] px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all hover:border-[#C8A028]';
+        ? 'border-2 border-[#0f3a7d] bg-[#0f3a7d] text-white px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all'
+        : 'border-2 border-[#E5E7EB] bg-white text-[#6B7280] px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all hover:border-[#ff6b6b]';
 }
 
 const completion = computed(() => {
@@ -181,14 +181,14 @@ onMounted(async () => {
         <header class="sticky top-0 z-30 bg-[#FBF7F0]/95 backdrop-blur-sm border-b border-[#E8E4DA]">
             <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#1C4532] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#0f3a7d] flex items-center justify-center">
                         <svg class="w-4 h-4 text-[#E4B84A]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.2 6.2 10.6 7.5 10.6s7.5-5.4 7.5-10.6A7.5 7.5 0 0 0 12 1.5Z"/></svg>
                     </div>
-                    <h1 class="font-display text-xl font-medium text-[#1C4532] tracking-wide" style="font-family:'Cormorant Garamond',serif">Créer mon profil</h1>
+                    <h1 class="font-display text-xl font-medium text-[#0f3a7d] tracking-wide" style="font-family:'Cormorant Garamond',serif">Créer mon profil</h1>
                 </div>
                 <form method="POST" action="/logout">
                     <input type="hidden" name="_token" :value="document.querySelector('meta[name=csrf-token]')?.content || ''" />
-                    <button class="text-xs text-[#8A9680] hover:text-[#1C4532] flex items-center gap-1">
+                    <button class="text-xs text-[#8A9680] hover:text-[#0f3a7d] flex items-center gap-1">
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
                         Déconnexion
                     </button>
@@ -197,16 +197,16 @@ onMounted(async () => {
             <!-- Progress bar -->
             <div class="max-w-lg mx-auto px-4 pb-3">
                 <div class="h-1 w-full bg-[#E8E4DA] rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-[#1C4532] to-[#C8A028] rounded-full transition-all duration-500" :style="{ width: Math.round(step / 5 * 100) + '%' }"></div>
+                    <div class="h-full bg-gradient-to-r from-[#0f3a7d] to-[#ff6b6b] rounded-full transition-all duration-500" :style="{ width: Math.round(step / 5 * 100) + '%' }"></div>
                 </div>
                 <!-- Step dots -->
                 <div class="flex justify-between mt-2.5">
                     <div v-for="s in steps" :key="s.n" class="flex flex-col items-center gap-1 cursor-pointer" @click="goToStep(s.n)">
-                        <div :class="['w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all', step > s.n ? 'bg-[#C8A028] text-white' : step === s.n ? 'bg-[#1C4532] text-white shadow-md' : 'bg-[#E8E4DA] text-[#9CA3AF]']">
+                        <div :class="['w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all', step > s.n ? 'bg-[#ff6b6b] text-white' : step === s.n ? 'bg-[#0f3a7d] text-white shadow-md' : 'bg-[#E8E4DA] text-[#9CA3AF]']">
                             <svg v-if="step > s.n" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                             <span v-else>{{ s.n }}</span>
                         </div>
-                        <span :class="['text-[9px] font-medium', step === s.n ? 'text-[#1C4532]' : 'text-[#9CA3AF]']">{{ s.title }}</span>
+                        <span :class="['text-[9px] font-medium', step === s.n ? 'text-[#0f3a7d]' : 'text-[#9CA3AF]']">{{ s.title }}</span>
                     </div>
                 </div>
             </div>
@@ -214,7 +214,7 @@ onMounted(async () => {
 
         <!-- Toast -->
         <Transition enter-active-class="transition duration-300" enter-from-class="opacity-0 -translate-y-4" leave-active-class="transition duration-200" leave-to-class="opacity-0">
-            <div v-if="toast" :class="['fixed top-4 right-4 z-50 px-5 py-3 rounded-xl shadow-lg text-sm font-semibold text-white', toast.type === 'error' ? 'bg-red-600' : 'bg-[#1C4532]']">{{ toast.msg }}</div>
+            <div v-if="toast" :class="['fixed top-4 right-4 z-50 px-5 py-3 rounded-xl shadow-lg text-sm font-semibold text-white', toast.type === 'error' ? 'bg-red-600' : 'bg-[#0f3a7d]']">{{ toast.msg }}</div>
         </Transition>
 
         <!-- Error -->
@@ -229,9 +229,9 @@ onMounted(async () => {
         <div class="max-w-lg mx-auto px-4 py-6 pb-36">
             <div class="bg-white rounded-2xl shadow-sm border border-[#E8E4DA] overflow-hidden">
                 <div class="px-5 pt-5 pb-2">
-                    <div class="text-[10px] text-[#C8A028] font-semibold uppercase tracking-widest mb-1">Étape {{ step }} sur 5</div>
+                    <div class="text-[10px] text-[#ff6b6b] font-semibold uppercase tracking-widest mb-1">Étape {{ step }} sur 5</div>
                     <div class="flex items-center justify-between">
-                        <h2 class="font-display text-2xl font-medium text-[#1C4532]" style="font-family:'Cormorant Garamond',serif">{{ steps[step - 1].title }}</h2>
+                        <h2 class="font-display text-2xl font-medium text-[#0f3a7d]" style="font-family:'Cormorant Garamond',serif">{{ steps[step - 1].title }}</h2>
                         <div class="text-3xl">{{ steps[step - 1].icon }}</div>
                     </div>
                 </div>
@@ -243,20 +243,20 @@ onMounted(async () => {
                             <div class="section-label mb-2.5">Contact & localisation</div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Âge <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Âge <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="number" v-model="data.age" min="18" max="99" class="field-input-re !w-24 text-center" placeholder="25" />
-                                    <span class="text-[11px] text-[#C8A028] block mt-1">Vous devez avoir 18 ans ou plus.</span>
+                                    <span class="text-[11px] text-[#ff6b6b] block mt-1">Vous devez avoir 18 ans ou plus.</span>
                                 </div>
                                 <div>
                                     <label class="field-label-re block mb-1.5">Kounia / Pseudo <span class="text-[#9CA3AF] font-normal">(optionnel)</span></label>
                                     <input type="text" v-model="data.kounia" class="field-input-re" placeholder="Ex : Abou Ibrahim, Oum Salma…" />
                                 </div>
                                 <div class="col-span-2">
-                                    <label class="field-label-re block mb-1.5">Ville <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Ville <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="text" v-model="data.city" class="field-input-re" placeholder="Ex : Paris, Lyon, Bruxelles..." />
                                 </div>
                                 <div class="col-span-2">
-                                    <label class="field-label-re block mb-1.5">WhatsApp <span class="text-[#C8A028]">*</span> <span v-if="gender === 'female'" class="text-[#9CA3AF] font-normal">(optionnel)</span></label>
+                                    <label class="field-label-re block mb-1.5">WhatsApp <span class="text-[#ff6b6b]">*</span> <span v-if="gender === 'female'" class="text-[#9CA3AF] font-normal">(optionnel)</span></label>
                                     <div class="flex gap-2">
                                         <select v-model="data.whatsappCode" class="field-input-re !w-32">
                                             <option v-for="c in countries" :key="c.name" :value="c.code">{{ c.name }} {{ c.code }}</option>
@@ -266,25 +266,25 @@ onMounted(async () => {
                                     <span class="text-[11px] text-[#9CA3AF] block mt-1">Visible uniquement par l'administration</span>
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Nationalité <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Nationalité <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="text" v-model="data.nationality" class="field-input-re" placeholder="Ex : Française, Marocaine..." />
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Pays de résidence <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Pays de résidence <span class="text-[#ff6b6b]">*</span></label>
                                     <select v-model="data.permanent_country" class="field-input-re">
                                         <option value="">— Sélectionnez votre pays —</option>
                                         <option v-for="c in countries" :key="c.name">{{ c.name }}</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Pays d'origine <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Pays d'origine <span class="text-[#ff6b6b]">*</span></label>
                                     <select v-model="data.origine" class="field-input-re">
                                         <option value="">— Sélectionnez votre pays d'origine —</option>
                                         <option v-for="c in countries" :key="c.name">{{ c.name }}</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Langue principale <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Langue principale <span class="text-[#ff6b6b]">*</span></label>
                                     <div class="grid grid-cols-2 gap-2">
                                         <button @click="data.spoken_langage = 'Français'" :class="pill(data.spoken_langage === 'Français')">Français</button>
                                         <button @click="data.spoken_langage = 'Anglais'" :class="pill(data.spoken_langage === 'Anglais')">Anglais</button>
@@ -298,14 +298,14 @@ onMounted(async () => {
                     <div v-else-if="step === 2" class="space-y-5">
                         <div>
                             <div class="section-label mb-2.5">Situation matrimoniale</div>
-                            <label class="field-label-re block mb-1.5">Situation matrimoniale <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Situation matrimoniale <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button v-for="m in maritalOptions" :key="m" @click="data.maritial_status = m.toLowerCase()" :class="pill(data.maritial_status === m.toLowerCase())">{{ m }}</button>
                             </div>
                         </div>
 
                         <div v-if="gender === 'female'">
-                            <label class="field-label-re block mb-1.5">Envisagez-vous la polygamie ? <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Envisagez-vous la polygamie ? <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button @click="data.polygamy = 'yes'" :class="pill(data.polygamy === 'yes')">Oui</button>
                                 <button @click="data.polygamy = 'no'" :class="pill(data.polygamy === 'no')">Non</button>
@@ -326,14 +326,14 @@ onMounted(async () => {
                             </div>
                             <div v-if="(data.boys > 0 || data.girls > 0)" class="mt-3 bg-[#FEFCF7] border border-[#E8E4DA] rounded-xl p-4 space-y-3">
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Avez-vous des enfants à charge ? <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Avez-vous des enfants à charge ? <span class="text-[#ff6b6b]">*</span></label>
                                     <div class="grid grid-cols-2 gap-2.5">
                                         <button @click="data.dependentchildren = 'Oui'" :class="pill(data.dependentchildren === 'Oui')">Oui</button>
                                         <button @click="data.dependentchildren = 'Non'" :class="pill(data.dependentchildren === 'Non')">Non</button>
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Précisez leurs âges <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Précisez leurs âges <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="text" v-model="data.children_details" class="field-input-re" placeholder="Ex : 3 ans, 7 ans, 12 ans" />
                                 </div>
                             </div>
@@ -341,18 +341,18 @@ onMounted(async () => {
 
                         <div v-if="gender === 'female'">
                             <div class="section-label mb-2.5">Tuteur (Wali)</div>
-                            <label class="field-label-re block mb-1.5">Avez-vous un tuteur (wali) ? <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Avez-vous un tuteur (wali) ? <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button @click="data.has_tutor = true" :class="pill(data.has_tutor === true)">Oui</button>
                                 <button @click="data.has_tutor = false" :class="pill(data.has_tutor === false)">Non</button>
                             </div>
                             <div v-if="data.has_tutor === true" class="mt-3 bg-[#FEFCF7] rounded-xl p-4 border border-[#E8E4DA] space-y-3">
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Nom du tuteur <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Nom du tuteur <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="text" v-model="data.tutorname" class="field-input-re" placeholder="Nom complet du tuteur" />
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Téléphone du tuteur <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Téléphone du tuteur <span class="text-[#ff6b6b]">*</span></label>
                                     <div class="flex gap-2">
                                         <select v-model="data.tutorphoneCode" class="field-input-re !w-32">
                                             <option v-for="c in countries" :key="c.name" :value="c.code">{{ c.name }} {{ c.code }}</option>
@@ -361,11 +361,11 @@ onMounted(async () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="field-label-re block mb-1.5">Affiliation du tuteur <span class="text-[#C8A028]">*</span></label>
+                                    <label class="field-label-re block mb-1.5">Affiliation du tuteur <span class="text-[#ff6b6b]">*</span></label>
                                     <input type="text" v-model="data.tutoraffiliation" class="field-input-re" placeholder="Ex : Mosquée, famille, association..." />
                                 </div>
                             </div>
-                            <div v-else-if="data.has_tutor === false" class="mt-3 rounded-xl border border-[#C8A028]/40 bg-[#FEFCF0] p-4">
+                            <div v-else-if="data.has_tutor === false" class="mt-3 rounded-xl border border-[#ff6b6b]/40 bg-[#FEFCF0] p-4">
                                 <div class="text-[#8A6D12] text-xs leading-relaxed">
                                     ☾ Un tuteur est requis pour un mariage islamique. Sans tuteur, nous ne pouvons vous mettre en relation avec un prétendant avec qui vous souhaitez aller plus loin dans les démarches. Discutez-en avec votre prétendant pour trouver une solution.
                                 </div>
@@ -377,23 +377,23 @@ onMounted(async () => {
                     <div v-else-if="step === 3" class="space-y-5">
                         <div>
                             <div class="section-label mb-2.5">Profession</div>
-                            <label class="field-label-re block mb-1.5">Votre métier <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Votre métier <span class="text-[#ff6b6b]">*</span></label>
                             <input type="text" v-model="data.job" class="field-input-re" placeholder="Ex : Infirmière, Ingénieur..." />
                         </div>
                         <div>
                             <div class="section-label mb-2.5">Apparence physique</div>
-                            <label class="field-label-re block mb-1.5">Votre taille <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Votre taille <span class="text-[#ff6b6b]">*</span></label>
                             <input type="text" v-model="data.tall" class="field-input-re" placeholder="Ex : 175 cm, 5'9&quot;, 5 ft 9 in…" />
                             <span class="text-[11px] text-[#9CA3AF] block mt-1">Nous vous demandons votre taille, pas votre poids</span>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Ethnicité <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Ethnicité <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button v-for="e in ethnicities" :key="e" @click="data.ethnicity = e" :class="pill(data.ethnicity === e)">{{ e }}</button>
                             </div>
                         </div>
                         <div v-if="gender === 'male'">
-                            <label class="field-label-re block mb-1.5">Morphologie <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Morphologie <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button v-for="b in bodyTypes" :key="b" @click="data.body_type = b" :class="pill(data.body_type === b)">{{ b }}</button>
                             </div>
@@ -404,19 +404,19 @@ onMounted(async () => {
                     <div v-else-if="step === 4" class="space-y-5">
                         <div>
                             <div class="section-label mb-2.5">Pratique religieuse</div>
-                            <label class="field-label-re block mb-1.5">Suivez-vous le minhaj salafi ? <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Suivez-vous le minhaj salafi ? <span class="text-[#ff6b6b]">*</span></label>
                             <div class="space-y-2.5">
-                                <button v-for="s in salafyOptions" :key="s" @click="data.salafy = s.toLowerCase()" :class="['w-full text-left px-4 py-3 rounded-xl border-2 text-sm font-medium transition-all', data.salafy === s.toLowerCase() ? 'border-[#1C4532] bg-[#1C4532] text-white' : 'border-[#E5E7EB] bg-white text-[#6B7280] hover:border-[#C8A028]']">{{ s }}</button>
+                                <button v-for="s in salafyOptions" :key="s" @click="data.salafy = s.toLowerCase()" :class="['w-full text-left px-4 py-3 rounded-xl border-2 text-sm font-medium transition-all', data.salafy === s.toLowerCase() ? 'border-[#0f3a7d] bg-[#0f3a7d] text-white' : 'border-[#E5E7EB] bg-white text-[#6B7280] hover:border-[#ff6b6b]']">{{ s }}</button>
                             </div>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Projet Hijra <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Projet Hijra <span class="text-[#ff6b6b]">*</span></label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button v-for="h in hijraOptions" :key="h" @click="data.hijra = h" :class="pill(data.hijra === h)">{{ h }}</button>
                             </div>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Pratique religieuse sérieuse depuis (en années) <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Pratique religieuse sérieuse depuis (en années) <span class="text-[#ff6b6b]">*</span></label>
                             <input type="number" v-model="data.practice_religion_years" min="0" max="80" class="field-input-re !w-24 text-center" placeholder="0" />
                             <span class="text-[11px] text-[#9CA3AF] ml-1">ans</span>
                         </div>
@@ -428,11 +428,11 @@ onMounted(async () => {
                             </select>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Votre tenue vestimentaire <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Votre tenue vestimentaire <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.dress_code_text" rows="3" class="field-input-re !h-auto !py-3 resize-none" placeholder="Décrivez votre manière de vous habiller..."></textarea>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Savants / imams que vous suivez <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Savants / imams que vous suivez <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.scholars" rows="2" class="field-input-re !h-auto !py-3 resize-none" placeholder="Ex : Ibn Baz, Al-Uthaymin..."></textarea>
                         </div>
                     </div>
@@ -441,24 +441,24 @@ onMounted(async () => {
                     <div v-else class="space-y-5">
                         <div>
                             <div class="section-label mb-2.5">Santé</div>
-                            <label class="field-label-re block mb-1.5">Votre santé physique et morale <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Votre santé physique et morale <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.health" rows="3" class="field-input-re !h-auto !py-3 resize-none" placeholder="Décrivez votre état de santé physique et moral..."></textarea>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Maladie occulte <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Maladie occulte <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.occult" rows="2" class="field-input-re !h-auto !py-3 resize-none" placeholder="Sihr, envoutement, djinn... Mentionnez si applicable."></textarea>
                         </div>
                         <div>
                             <div class="section-label mb-2.5">Présentation</div>
-                            <label class="field-label-re block mb-1.5">Qui êtes-vous ? <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Qui êtes-vous ? <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.bio" rows="5" class="field-input-re !h-auto !py-3 resize-none" placeholder="Parlez de vous, de votre personnalité, de vos valeurs..."></textarea>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Ce que vous cherchez chez le/la prétendant(e) <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Ce que vous cherchez chez le/la prétendant(e) <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.looking_for" rows="4" class="field-input-re !h-auto !py-3 resize-none" placeholder="Décrivez le profil que vous recherchez..."></textarea>
                         </div>
                         <div>
-                            <label class="field-label-re block mb-1.5">Vos critères rédhibitoires <span class="text-[#C8A028]">*</span></label>
+                            <label class="field-label-re block mb-1.5">Vos critères rédhibitoires <span class="text-[#ff6b6b]">*</span></label>
                             <textarea v-model="data.prohibitive_criteria" rows="3" class="field-input-re !h-auto !py-3 resize-none" placeholder="Ce qui est absolument rédhibitoire pour vous..."></textarea>
                         </div>
                     </div>
@@ -484,36 +484,36 @@ onMounted(async () => {
                     <div class="max-w-lg mx-auto w-full px-4 pt-5 flex items-center gap-3">
                         <button @click="showCgu = false" class="btn-re btn-re-ghost px-4 py-2 text-sm">← Retour</button>
                         <div>
-                            <h2 class="font-display text-2xl font-medium text-[#1C4532]" style="font-family:'Cormorant Garamond',serif">Conditions Générales d'Utilisation</h2>
+                            <h2 class="font-display text-2xl font-medium text-[#0f3a7d]" style="font-family:'Cormorant Garamond',serif">Conditions Générales d'Utilisation</h2>
                             <p class="text-xs text-[#8A9680]">Lisez attentivement avant de valider votre profil</p>
                         </div>
                     </div>
                     <div class="flex-1 overflow-y-auto max-w-lg mx-auto w-full px-4 py-5">
                         <div class="bg-white rounded-2xl border border-[#E8E4DA] p-6 text-sm text-[#374151] space-y-4">
                             <div>
-                                <div class="font-semibold text-[#1C4532] mb-2">1. Objet de la plateforme</div>
+                                <div class="font-semibold text-[#0f3a7d] mb-2">1. Objet de la plateforme</div>
                                 <p class="text-xs leading-relaxed text-[#6B7280]">Rencontre Éthique est une plateforme de rencontre matrimoniale islamique. Les profils sont validés par l'imam ou un modérateur de la mosquée du membre. L'utilisation de la plateforme est strictement réservée aux personnes majeures (18 ans et plus) cherchant le mariage.</p>
                             </div>
                             <div>
-                                <div class="font-semibold text-[#1C4532] mb-2">2. Sincérité des informations</div>
+                                <div class="font-semibold text-[#0f3a7d] mb-2">2. Sincérité des informations</div>
                                 <p class="text-xs leading-relaxed text-[#6B7280]">Chaque membre atteste devant Allah que les informations fournies sont sincères et exactes. Toute fausse déclaration peut entraîner la suspension définitive du profil.</p>
                             </div>
                             <div>
-                                <div class="font-semibold text-[#1C4532] mb-2">3. Respect et bienséance</div>
+                                <div class="font-semibold text-[#0f3a7d] mb-2">3. Respect et bienséance</div>
                                 <p class="text-xs leading-relaxed text-[#6B7280]">Les échanges doivent se dérouler dans le respect des règles de bienséance islamique. Tout comportement inapproprié entraîne la modération du profil et des échanges.</p>
                             </div>
                             <div>
-                                <div class="font-semibold text-[#1C4532] mb-2">4. Confidentialité</div>
+                                <div class="font-semibold text-[#0f3a7d] mb-2">4. Confidentialité</div>
                                 <p class="text-xs leading-relaxed text-[#6B7280]">Vos informations ne sont visibles que par les membres approuvés de votre mosquée et par l'administration. Les coordonnées (WhatsApp, téléphone) ne sont visibles que par l'administration.</p>
                             </div>
                         </div>
                         <div class="mt-5 space-y-3.5">
                             <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" v-model="cguAccepted" class="w-5 h-5 rounded accent-[#1C4532] mt-0.5" />
+                                <input type="checkbox" v-model="cguAccepted" class="w-5 h-5 rounded accent-[#0f3a7d] mt-0.5" />
                                 <span class="text-sm text-[#374151]">J'ai lu et j'accepte les Conditions Générales d'Utilisation</span>
                             </label>
                             <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" v-model="cguAttest" class="w-5 h-5 rounded accent-[#1C4532] mt-0.5" />
+                                <input type="checkbox" v-model="cguAttest" class="w-5 h-5 rounded accent-[#0f3a7d] mt-0.5" />
                                 <span class="text-sm text-[#374151]">J'atteste devant Allah que les informations transmises sont sincères et exactes</span>
                             </label>
                         </div>
@@ -541,7 +541,7 @@ onMounted(async () => {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #1C4532;
+    color: #0f3a7d;
     font-weight: 600;
     font-size: 11px;
     text-transform: uppercase;
@@ -551,7 +551,7 @@ onMounted(async () => {
     content: '';
     width: 2px;
     height: 18px;
-    background: #C8A028;
+    background: #ff6b6b;
     border-radius: 999px;
 }
 .pill-class {
@@ -564,10 +564,10 @@ onMounted(async () => {
     font-weight: 500;
     transition: all .15s;
 }
-.pill-class:hover { border-color: #C8A028; }
+.pill-class:hover { border-color: #ff6b6b; }
 .pill-active {
-    border-color: #1C4532;
-    background: #1C4532;
+    border-color: #0f3a7d;
+    background: #0f3a7d;
     color: #fff;
 }
 </style>

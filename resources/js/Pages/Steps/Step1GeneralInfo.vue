@@ -9,7 +9,7 @@
         v-model="form.firstName"
         type="text"
         placeholder="Votre prénom"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.firstName" class="text-red-500 text-sm mt-1">{{ errors.firstName }}</p>
@@ -24,7 +24,7 @@
         v-model="form.lastName"
         type="text"
         placeholder="Votre nom"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.lastName" class="text-red-500 text-sm mt-1">{{ errors.lastName }}</p>
@@ -38,7 +38,7 @@
       <input
         v-model="form.dateOfBirth"
         type="date"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.dateOfBirth" class="text-red-500 text-sm mt-1">{{ errors.dateOfBirth }}</p>
@@ -69,7 +69,7 @@
       </label>
       <select
         v-model="form.nationality"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -91,7 +91,7 @@
       </label>
       <select
         v-model="form.countryOfResidence"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>
@@ -115,7 +115,7 @@
         v-model="form.region"
         type="text"
         placeholder="Votre région"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.region" class="text-red-500 text-sm mt-1">{{ errors.region }}</p>
@@ -130,7 +130,7 @@
         v-model="form.city"
         type="text"
         placeholder="Votre ville"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.city" class="text-red-500 text-sm mt-1">{{ errors.city }}</p>
@@ -145,7 +145,7 @@
         v-model="form.profession"
         type="text"
         placeholder="Votre profession"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       />
       <p v-if="errors.profession" class="text-red-500 text-sm mt-1">{{ errors.profession }}</p>
@@ -158,7 +158,7 @@
       </label>
       <select
         v-model="form.educationLevel"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
         required
       >
         <option value="">-- Sélectionner --</option>

@@ -20,7 +20,7 @@ const cols = [
                 <!-- Brand -->
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-2.5 mb-4">
-                        <div class="w-9 h-9 rounded-xl bg-[#1C4532] border border-[#C8A028]/25 flex items-center justify-center">
+                        <div class="w-9 h-9 rounded-xl bg-[#0f3a7d] border border-[#C8A028]/25 flex items-center justify-center">
                             <svg class="w-[18px] h-[18px] text-[#E4B84A]" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.2 6.2 10.6 7.5 10.6s7.5-5.4 7.5-10.6A7.5 7.5 0 0 0 12 1.5Z"/>
                             </svg>

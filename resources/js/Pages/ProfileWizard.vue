@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-[#0D2218] to-[#1C4532] py-12 px-4">
+  <div class="min-h-screen bg-gradient-to-br from-[#0D2218] to-[#0f3a7d] py-12 px-4">
     <div class="container mx-auto max-w-4xl">
       <!-- Header -->
       <div class="text-center mb-12">
@@ -11,11 +11,11 @@
       <div class="mb-8">
         <div class="flex justify-between items-center mb-4">
           <span class="text-white font-semibold">Étape {{ currentStep }} sur {{ totalSteps }}</span>
-          <span class="text-[#C8A028] font-bold">{{ Math.round((currentStep / totalSteps) * 100) }}%</span>
+          <span class="text-[#ff6b6b] font-bold">{{ Math.round((currentStep / totalSteps) * 100) }}%</span>
         </div>
         <div class="w-full bg-gray-700 rounded-full h-3">
           <div 
-            class="bg-[#C8A028] h-3 rounded-full transition-all duration-500"
+            class="bg-[#ff6b6b] h-3 rounded-full transition-all duration-500"
             :style="{ width: `${(currentStep / totalSteps) * 100}%` }"
           ></div>
         </div>
@@ -31,7 +31,7 @@
           :class="[
             'flex-shrink-0 w-12 h-12 rounded-full font-bold transition-all',
             step === currentStep 
-              ? 'bg-[#C8A028] text-[#0D2218] shadow-lg' 
+              ? 'bg-[#ff6b6b] text-[#0D2218] shadow-lg' 
               : step < currentStep 
                 ? 'bg-green-600 text-white hover:bg-green-700' 
                 : 'bg-gray-600 text-gray-300 cursor-not-allowed'
@@ -81,7 +81,7 @@
             :class="[
               'px-6 py-3 rounded-lg font-semibold transition',
               isStepValid && !isLoading
-                ? 'bg-[#C8A028] text-[#0D2218] hover:bg-[#D4B44D]' 
+                ? 'bg-[#ff6b6b] text-[#0D2218] hover:bg-[#D4B44D]' 
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             ]"
           >

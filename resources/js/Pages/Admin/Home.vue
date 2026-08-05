@@ -106,49 +106,49 @@ onMounted(() => {
                 <div class="biodata_main w-full min-h-screen">
                     <TabGroup :selectedIndex="selectedTab" @change="changeTab">
 
-                        <TabList class="flex gap-3 border-b border-[#C8A028]/20 pb-4 overflow-x-auto scroll-smooth">
+                        <TabList class="flex gap-3 border-b border-[#ff6b6b]/20 pb-4 overflow-x-auto scroll-smooth">
                             <Tab v-slot="{ selected }" as="template">
                                 <button
-                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#C8A028]/40',
+                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]/40',
                                     selected 
-                                        ? 'bg-[#C8A028]/20 text-[#E4B84A] border border-[#C8A028]/40 shadow-lg shadow-[#C8A028]/10' 
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5 border border-transparent']">
+                                        ? 'bg-[#ff6b6b]/20 text-[#E4B84A] border border-[#ff6b6b]/40 shadow-lg shadow-[#ff6b6b]/10' 
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5 border border-transparent']">
                                     👥 Profils
                                 </button>
                             </Tab>
                             <Tab v-slot="{ selected }" as="template">
                                 <button
-                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#C8A028]/40',
+                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]/40',
                                     selected 
-                                        ? 'bg-[#C8A028]/20 text-[#E4B84A] border border-[#C8A028]/40 shadow-lg shadow-[#C8A028]/10' 
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5 border border-transparent']">
+                                        ? 'bg-[#ff6b6b]/20 text-[#E4B84A] border border-[#ff6b6b]/40 shadow-lg shadow-[#ff6b6b]/10' 
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5 border border-transparent']">
                                     💍 Propositions
                                 </button>
                             </Tab>
                             <Tab v-slot="{ selected }" as="template">
                                 <button
-                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#C8A028]/40',
+                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]/40',
                                     selected 
-                                        ? 'bg-[#C8A028]/20 text-[#E4B84A] border border-[#C8A028]/40 shadow-lg shadow-[#C8A028]/10' 
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5 border border-transparent']">
+                                        ? 'bg-[#ff6b6b]/20 text-[#E4B84A] border border-[#ff6b6b]/40 shadow-lg shadow-[#ff6b6b]/10' 
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5 border border-transparent']">
                                     ✅ Approuvés
                                 </button>
                             </Tab>
                             <Tab v-slot="{ selected }" as="template">
                                 <button
-                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#C8A028]/40',
+                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]/40',
                                     selected 
-                                        ? 'bg-[#C8A028]/20 text-[#E4B84A] border border-[#C8A028]/40 shadow-lg shadow-[#C8A028]/10' 
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5 border border-transparent']">
+                                        ? 'bg-[#ff6b6b]/20 text-[#E4B84A] border border-[#ff6b6b]/40 shadow-lg shadow-[#ff6b6b]/10' 
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5 border border-transparent']">
                                     ⚙️ Autres
                                 </button>
                             </Tab>
                             <Tab v-slot="{ selected }" as="template">
                                 <button
-                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#C8A028]/40',
+                                    :class="['px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]/40',
                                     selected 
-                                        ? 'bg-[#C8A028]/20 text-[#E4B84A] border border-[#C8A028]/40 shadow-lg shadow-[#C8A028]/10' 
-                                        : 'text-[#C8A028]/60 hover:text-[#C8A028] hover:bg-white/5 border border-transparent']">
+                                        ? 'bg-[#ff6b6b]/20 text-[#E4B84A] border border-[#ff6b6b]/40 shadow-lg shadow-[#ff6b6b]/10' 
+                                        : 'text-[#ff6b6b]/60 hover:text-[#ff6b6b] hover:bg-white/5 border border-transparent']">
                                     📝 Contenus
                                 </button>
                             </Tab>
@@ -164,21 +164,21 @@ onMounted(() => {
 
                             </TabPanel>
 
-                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#1C4532]/[.06] focus:outline-none',
+                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#0f3a7d]/[.06] focus:outline-none',
                             ]">
 
                                 <Proposals :translations :locale :locales :front_end_translations :all_biodatas="allBiodatas" :all_proposals="allProposals" :districts @onUpdateAllProposals="onUpdateAllProposals" />
 
                             </TabPanel>
 
-                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#1C4532]/[.06] focus:outline-none',
+                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#0f3a7d]/[.06] focus:outline-none',
                             ]">
 
                                 <Approved :translations :locale :locales :front_end_translations :all_biodatas="allBiodatas" :biodata_updates :all_proposals="allProposals" :districts  @onUpdateAllBiodatas="onUpdateAllBiodatas" />
 
                             </TabPanel>
 
-                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#1C4532]/[.06] focus:outline-none',
+                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#0f3a7d]/[.06] focus:outline-none',
                             ]">
 
                                 <Others :translations :locale :locales :front_end_translations :all_biodatas="allBiodatas" :districts :all_terms="allTerms" @onUpdateAllTerms="onUpdateAllTerms" />
@@ -191,7 +191,7 @@ onMounted(() => {
 
                             </TabPanel>
 
-                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#1C4532]/[.06] focus:outline-none',
+                            <TabPanel :class="['rounded-2xl bg-white p-3 shadow-sm ring-1 ring-[#0f3a7d]/[.06] focus:outline-none',
                             ]">
 
                                 <Content :translations />

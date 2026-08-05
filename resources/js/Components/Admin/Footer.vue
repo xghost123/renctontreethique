@@ -41,7 +41,7 @@ onUnmounted(() => {
             <div class="main-container py-8">
 
                 <div class="flex items-center justify-center gap-2.5">
-                    <div class="w-7 h-7 rounded-lg bg-[#1C4532] border border-[#C8A028]/30 flex items-center justify-center">
+                    <div class="w-7 h-7 rounded-lg bg-[#0f3a7d] border border-[#C8A028]/30 flex items-center justify-center">
                         <svg class="w-3.5 h-3.5 text-[#C8A028]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.2 6.2 10.6 7.5 10.6s7.5-5.4 7.5-10.6A7.5 7.5 0 0 0 12 1.5Z"/></svg>
                     </div>
                     <div class="footer-bottom-text">© {{ new Date().getFullYear() }} Rencontre Éthique — Administration</div>

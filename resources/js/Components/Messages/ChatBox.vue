@@ -3,14 +3,14 @@
     <!-- Chat Container -->
     <div class="flex flex-col h-full bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
       <!-- Header -->
-      <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#1C4532]/5 to-transparent">
+      <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#0f3a7d]/5 to-transparent">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-[#1C4532]/10 flex items-center justify-center text-[#1C4532] font-bold text-sm">
+            <div class="w-10 h-10 rounded-full bg-[#0f3a7d]/10 flex items-center justify-center text-[#0f3a7d] font-bold text-sm">
               {{ (recipientName || '?').charAt(0).toUpperCase() }}
             </div>
             <div>
-              <h3 class="font-semibold text-[#1C4532]">{{ recipientName || 'Loading...' }}</h3>
+              <h3 class="font-semibold text-[#0f3a7d]">{{ recipientName || 'Loading...' }}</h3>
               <p class="text-xs text-gray-500">
                 <span v-if="isOnline" class="inline-flex items-center gap-1">
                   <span class="w-2 h-2 bg-green-500 rounded-full"></span> Online
@@ -53,7 +53,7 @@
           <!-- Received message -->
           <template v-if="!msg.is_from_me">
             <div class="flex-shrink-0">
-              <div class="w-8 h-8 rounded-full bg-[#1C4532]/10 flex items-center justify-center text-[#1C4532] font-bold text-xs">
+              <div class="w-8 h-8 rounded-full bg-[#0f3a7d]/10 flex items-center justify-center text-[#0f3a7d] font-bold text-xs">
                 {{ (recipientName || '?').charAt(0).toUpperCase() }}
               </div>
             </div>
@@ -68,7 +68,7 @@
           <!-- Sent message -->
           <template v-else>
             <div class="max-w-xs">
-              <div class="bg-[#1C4532] text-white px-4 py-2.5 rounded-2xl rounded-tr-sm">
+              <div class="bg-[#0f3a7d] text-white px-4 py-2.5 rounded-2xl rounded-tr-sm">
                 <p class="text-sm leading-relaxed whitespace-pre-wrap break-words">{{ msg.body }}</p>
               </div>
               <div class="flex items-center justify-end gap-2 mt-1 px-2">
@@ -90,7 +90,7 @@
 
         <!-- Typing indicator -->
         <div v-if="isTyping" class="flex gap-2 items-start">
-          <div class="w-8 h-8 rounded-full bg-[#1C4532]/10 flex items-center justify-center text-[#1C4532] font-bold text-xs flex-shrink-0">
+          <div class="w-8 h-8 rounded-full bg-[#0f3a7d]/10 flex items-center justify-center text-[#0f3a7d] font-bold text-xs flex-shrink-0">
             {{ (recipientName || '?').charAt(0).toUpperCase() }}
           </div>
           <div class="bg-gray-200 px-4 py-2 rounded-2xl rounded-tl-sm">
@@ -117,7 +117,7 @@
           <button
             @click="sendMessage"
             :disabled="sending || !messageText.trim()"
-            class="bg-[#1C4532] hover:bg-[#163828] text-white px-5 rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 text-sm font-semibold"
+            class="bg-[#0f3a7d] hover:bg-[#163828] text-white px-5 rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 text-sm font-semibold"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
@@ -384,7 +384,7 @@ onUnmounted(() => {
 }
 
 .field-input-re {
-  @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1C4532]/20 focus:border-transparent bg-white text-gray-900 placeholder-gray-400;
+  @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f3a7d]/20 focus:border-transparent bg-white text-gray-900 placeholder-gray-400;
 }
 
 /* Auto-expand textarea */

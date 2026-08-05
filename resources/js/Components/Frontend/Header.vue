@@ -3,11 +3,7 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <!-- Logo -->
       <Link href="/" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#ff6b6b] flex items-center justify-center">
-          <svg class="w-6 h-6 text-[#0f3a7d]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C7.03 2 3 6.03 3 11c0 6.5 9 11 9 11s9-4.5 9-11c0-4.97-4.03-9-9-9zm0 4.5c2.76 0 5 2.24 5 5 0 .55-.45 1-1 1s-1-.45-1-1c0-1.66-1.34-3-3-3-.55 0-1-.45-1-1s.45-1 1-1z"/>
-          </svg>
-        </div>
+        <img src="/logo-new.svg" alt="Rencontre Éthique" class="w-12 h-12">
         <div>
           <div class="font-display text-xl font-semibold text-white" style="font-family:'Cormorant Garamond',serif">Rencontre Éthique</div>
           <div class="text-[10px] uppercase tracking-[.18em] text-[#ff6b6b]">Halal · Mosquée · Sérieux</div>

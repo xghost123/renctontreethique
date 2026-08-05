@@ -3,7 +3,7 @@
     <Head title="Rencontre Éthique - Trouvez votre moitié" />
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-[#0D2218] to-[#1C4532] text-white py-24 relative overflow-hidden">
+    <section class="bg-gradient-to-r from-[#0D2218] to-[#0f3a7d] text-white py-24 relative overflow-hidden">
       <div class="absolute inset-0 opacity-20" style="background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 320%22><path fill=%22%23C8A028%22 d=%22M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%22></path></svg>')"></div>
       
       <div class="container mx-auto px-4 relative z-10 text-center">
@@ -11,7 +11,7 @@
         <p class="text-xl md:text-2xl mb-8 text-gray-200">Rencontrez votre moitié au sein de votre communauté</p>
         <Link 
           href="/register" 
-          class="inline-block bg-[#C8A028] text-[#0D2218] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#D4B44D] transition transform hover:scale-105"
+          class="inline-block bg-[#ff6b6b] text-[#0D2218] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#D4B44D] transition transform hover:scale-105"
         >
           Créer mon profil gratuitement
         </Link>
@@ -97,7 +97,7 @@
           />
         </div>
 
-        <div class="mt-12 p-6 bg-blue-50 border-l-4 border-[#C8A028] rounded">
+        <div class="mt-12 p-6 bg-blue-50 border-l-4 border-[#ff6b6b] rounded">
           <p class="text-gray-700 italic">
             <strong>Important :</strong> Les profils consultés entre prétendants restent anonymes durant tout le processus.
           </p>

@@ -104,7 +104,7 @@ onMounted(async () => {
         <div class="relative max-w-6xl mx-auto px-5 pt-8">
             <!-- Toast -->
             <Transition enter-active-class="transition duration-300" enter-from-class="opacity-0 translate-y-3" leave-active-class="transition duration-200" leave-to-class="opacity-0">
-                <div v-if="toast" :class="['fixed top-5 right-5 z-50 px-5 py-3 rounded-2xl shadow-xl text-sm font-semibold text-white', toast.type === 'error' ? 'bg-red-600' : 'bg-[#1C4532]']">
+                <div v-if="toast" :class="['fixed top-5 right-5 z-50 px-5 py-3 rounded-2xl shadow-xl text-sm font-semibold text-white', toast.type === 'error' ? 'bg-red-600' : 'bg-[#0f3a7d]']">
                     {{ toast.msg }}
                 </div>
             </Transition>
@@ -112,7 +112,7 @@ onMounted(async () => {
             <!-- Header -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                    <h1 class="font-display text-3xl font-medium text-[#1C4532]" style="font-family:'Cormorant Garamond',serif">
+                    <h1 class="font-display text-3xl font-medium text-[#0f3a7d]" style="font-family:'Cormorant Garamond',serif">
                         {{ gender === 'female' ? 'Sœurs de ma mosquée' : gender === 'male' ? 'Frères de ma mosquée' : 'Membres de ma mosquée' }}
                     </h1>
                     <p class="text-sm text-[#8A9680] mt-1">{{ total }} membre{{ total > 1 ? 's' : '' }} — uniquement votre mosquée</p>
@@ -152,7 +152,7 @@ onMounted(async () => {
                         <div>
                             <label class="field-label-re block mb-1.5">Situation familiale</label>
                             <div class="flex flex-wrap gap-1.5">
-                                <button v-for="m in options.marital_statuses" :key="m" @click="filters.marital_status.includes(m) ? filters.marital_status = filters.marital_status.filter(x => x !== m) : filters.marital_status.push(m)" :class="['px-2.5 py-1.5 rounded-lg border text-[11px] font-medium transition-all', filters.marital_status.includes(m) ? 'bg-[#1C4532] border-[#1C4532] text-white' : 'bg-white border-[#E2DDD5] text-[#374151]']">{{ m }}</button>
+                                <button v-for="m in options.marital_statuses" :key="m" @click="filters.marital_status.includes(m) ? filters.marital_status = filters.marital_status.filter(x => x !== m) : filters.marital_status.push(m)" :class="['px-2.5 py-1.5 rounded-lg border text-[11px] font-medium transition-all', filters.marital_status.includes(m) ? 'bg-[#0f3a7d] border-[#0f3a7d] text-white' : 'bg-white border-[#E2DDD5] text-[#374151]']">{{ m }}</button>
                             </div>
                         </div>
                         <div>
@@ -198,7 +198,7 @@ onMounted(async () => {
             <!-- Error -->
             <div v-if="error" class="card-re p-8 text-center mb-6">
                 <div class="text-4xl mb-3">🔒</div>
-                <h2 class="font-display text-xl font-medium text-[#1C4532] mb-2" style="font-family:'Cormorant Garamond',serif">Accès limité</h2>
+                <h2 class="font-display text-xl font-medium text-[#0f3a7d] mb-2" style="font-family:'Cormorant Garamond',serif">Accès limité</h2>
                 <p class="text-sm text-[#8A9680] max-w-sm mx-auto">{{ error }}</p>
                 <div class="flex gap-3 justify-center mt-5">
                     <Link href="/app/status" class="btn-re btn-re-primary px-6 py-2.5 text-sm">Voir mon statut</Link>
@@ -229,13 +229,13 @@ onMounted(async () => {
                             <div class="flex items-start justify-between mb-3">
                                 <div class="flex items-center gap-3">
                                     <div class="relative">
-                                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1C4532] to-[#2D6A4F] flex items-center justify-center text-[#E4B84A] font-display text-xl font-bold" style="font-family:'Cormorant Garamond',serif">{{ m.age || '?' }}</div>
+                                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0f3a7d] to-[#17a2b8] flex items-center justify-center text-[#E4B84A] font-display text-xl font-bold" style="font-family:'Cormorant Garamond',serif">{{ m.age || '?' }}</div>
                                         <span v-if="m.is_verified" class="absolute -bottom-1 -right-1 w-4.5 h-4.5 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center">
                                             <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                                         </span>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-[#1C4532]">{{ m.age }} ans</div>
+                                        <div class="font-semibold text-[#0f3a7d]">{{ m.age }} ans</div>
                                         <div class="text-xs text-[#8A9680] capitalize">{{ m.maritial_status || '—' }}<template v-if="m.have_children && m.have_children !== 'Aucun'"> · {{ m.have_children }}</template></div>
                                     </div>
                                 </div>
@@ -243,8 +243,8 @@ onMounted(async () => {
                             </div>
 
                             <div class="flex flex-wrap gap-1.5 mb-3">
-                                <span v-if="m.madhab" class="text-[10px] bg-[#C8A028]/10 text-[#8A6D12] px-2 py-0.5 rounded-full font-medium">🕌 {{ m.madhab }}</span>
-                                <span v-if="m.practice_religion" class="text-[10px] bg-[#1C4532]/[.06] text-[#1C4532] px-2 py-0.5 rounded-full font-medium">{{ m.practice_religion }}</span>
+                                <span v-if="m.madhab" class="text-[10px] bg-[#ff6b6b]/10 text-[#8A6D12] px-2 py-0.5 rounded-full font-medium">🕌 {{ m.madhab }}</span>
+                                <span v-if="m.practice_religion" class="text-[10px] bg-[#0f3a7d]/[.06] text-[#0f3a7d] px-2 py-0.5 rounded-full font-medium">{{ m.practice_religion }}</span>
                                 <span v-if="m.height" class="text-[10px] bg-[#F0EDE6] text-[#4A5A4C] px-2 py-0.5 rounded-full font-medium">↕ {{ m.height }} cm</span>
                             </div>
 
@@ -256,7 +256,7 @@ onMounted(async () => {
                                 <span v-if="m.photo_blurred" class="flex items-center gap-1"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m7.53 6.53a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 0 1-1.414 0l-1.06-1.06A9.96 9.96 0 0 1 12 18a9.96 9.96 0 0 1-3.642-.699l-1.06 1.06a1 1 0 0 1-1.414 0L4.47 16.944a1 1 0 0 1 0-1.414L5.53 14.47A9.96 9.96 0 0 1 4.83 12a9.96 9.96 0 0 1 .7-2.47L4.47 8.47a1 1 0 0 1 0-1.414l1.414-1.414a1 1 0 0 1 1.414 0l1.06 1.06A9.96 9.96 0 0 1 12 6a9.96 9.96 0 0 1 3.642.699l1.06-1.06a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1 0 1.414L17.47 9.53c.469.756.7 1.605.7 2.47s-.231 1.714-.7 2.47l1.06 1.06Z"/></svg> Photo protégée</span>
                             </div>
 
-                            <button @click="sendProposal(m.user_id)" class="w-full bg-[#1C4532] hover:bg-[#163828] text-white text-xs font-semibold py-2.5 rounded-xl transition-all active:scale-[.98]">
+                            <button @click="sendProposal(m.user_id)" class="w-full bg-[#0f3a7d] hover:bg-[#163828] text-white text-xs font-semibold py-2.5 rounded-xl transition-all active:scale-[.98]">
                                 Envoyer une demande
                             </button>
                         </div>
@@ -265,7 +265,7 @@ onMounted(async () => {
 
                 <div v-else class="card-re p-14 text-center">
                     <div class="text-5xl mb-4">🕌</div>
-                    <h2 class="font-display text-xl font-medium text-[#1C4532] mb-2" style="font-family:'Cormorant Garamond',serif">Aucun membre trouvé</h2>
+                    <h2 class="font-display text-xl font-medium text-[#0f3a7d] mb-2" style="font-family:'Cormorant Garamond',serif">Aucun membre trouvé</h2>
                     <p class="text-sm text-[#8A9680]">Essayez d'élargir vos filtres ou revenez plus tard.</p>
                     <button @click="resetFilters" class="btn-re btn-re-ghost px-6 py-2.5 text-sm mt-5">Réinitialiser les filtres</button>
                 </div>

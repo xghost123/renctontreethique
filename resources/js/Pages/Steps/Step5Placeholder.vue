@@ -9,7 +9,7 @@
     <textarea
       v-model="form.notes"
       placeholder="Notes pour cette étape..."
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C8A028] focus:border-transparent outline-none transition"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b6b] focus:border-transparent outline-none transition"
       rows="4"
     ></textarea>
 
