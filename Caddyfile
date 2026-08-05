@@ -1,4 +1,4 @@
-localhost:80 {
+:80 {
     root * /app/public
     
     # Serve static files directly
@@ -12,14 +12,11 @@ localhost:80 {
     }
     
     # Route everything else to index.php
-    @notfile {
-        not file
-        not dir
-    }
-    handle @notfile {
-        rewrite * /index.php
-    }
+    encode gzip
+    try_files {path} {path}/ /index.php?{query}
     
-    # PHP handler
-    php_fastcgi localhost:9000
+    # PHP handler via FrankenPHP
+    php_handler {
+        root /app/public
+    }
 }
