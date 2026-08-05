@@ -1,0 +1,153 @@
+# Railway Environment Variables for Rencontre Éthique
+# Copy these into Railway dashboard: Project Settings → Variables
+
+# ═══════════════════════════════════════════════════════════════════════════
+# APPLICATION SETTINGS
+# ═══════════════════════════════════════════════════════════════════════════
+
+APP_NAME=RencontreEthique
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=base64:L4VGFSUG+axRhDrJqW252jeOv/sOsoEomoYigcRPSW0=
+
+# Your Railway domain (will be assigned after deployment)
+# Format: https://projectname-production.up.railway.app
+APP_URL=https://rencontre-ethique-production.up.railway.app
+
+# ═══════════════════════════════════════════════════════════════════════════
+# DATABASE CONFIGURATION (SQLite)
+# ═══════════════════════════════════════════════════════════════════════════
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CACHE & SESSION CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+CACHE_DRIVER=file
+CACHE_TTL=3600
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# ═══════════════════════════════════════════════════════════════════════════
+# QUEUE & JOBS CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+QUEUE_CONNECTION=sync
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EMAIL CONFIGURATION (for notifications)
+# ═══════════════════════════════════════════════════════════════════════════
+
+MAIL_MAILER=log
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=465
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@rencontre-ethique.app
+MAIL_FROM_NAME="Rencontre Éthique"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FILESYSTEM CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+FILESYSTEM_DISK=public
+FILESYSTEM_VISIBILITY=public
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LOGGING CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+LOG_CHANNEL=single
+LOG_LEVEL=debug
+
+# ═══════════════════════════════════════════════════════════════════════════
+# BROADCAST CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+BROADCAST_DRIVER=log
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECURITY & HASHING
+# ═══════════════════════════════════════════════════════════════════════════
+
+BCRYPT_ROUNDS=10
+HASH_DRIVER=bcrypt
+
+# ═══════════════════════════════════════════════════════════════════════════
+# HOW TO USE IN RAILWAY
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# 1. Go to: https://railway.app
+# 2. Create New Project → Deploy from GitHub
+# 3. Select: renctontreethique
+# 4. Go to: Project Settings → Variables
+# 5. Add each line ABOVE as:
+#    KEY = VALUE
+#    (without the # comments)
+#
+# Example:
+#    APP_NAME = RencontreEthique
+#    APP_ENV = production
+#    APP_KEY = base64:L4VGFSUG+axRhDrJqW252jeOv/sOsoEomoYigcRPSW0=
+#    etc...
+#
+# ═══════════════════════════════════════════════════════════════════════════
+
+# COPY-PASTE BLOCK (for easier setup):
+# Just copy everything between the quotes below into Railway Variables
+
+"""
+APP_NAME=RencontreEthique
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=base64:L4VGFSUG+axRhDrJqW252jeOv/sOsoEomoYigcRPSW0=
+APP_URL=https://rencontre-ethique-production.up.railway.app
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+CACHE_DRIVER=file
+CACHE_TTL=3600
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+QUEUE_CONNECTION=sync
+MAIL_MAILER=log
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=465
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@rencontre-ethique.app
+MAIL_FROM_NAME=Rencontre Éthique
+FILESYSTEM_DISK=public
+FILESYSTEM_VISIBILITY=public
+LOG_CHANNEL=single
+LOG_LEVEL=debug
+BROADCAST_DRIVER=log
+BCRYPT_ROUNDS=10
+HASH_DRIVER=bcrypt
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════
+# IMPORTANT NOTES
+# ═══════════════════════════════════════════════════════════════════════════
+
+# 1. APP_URL - Replace with your actual Railway domain after first deploy
+#    Railway will show: https://projectname-production.up.railway.app
+#    Update it here and redeploy
+
+# 2. APP_KEY - KEEP SECURE! This is already generated, don't change it
+
+# 3. Database - SQLite is included in the repo, no setup needed
+
+# 4. Email - Currently set to 'log' (for testing)
+#    For production email, use a service like:
+#    - Mailtrap (free tier)
+#    - SendGrid
+#    - AWS SES
+#    - Mailgun
+
+# 5. All files are committed to GitHub, so Railway can auto-build
+
+# ═════════════════════════════════════════════════════════════════════════════
