@@ -1,0 +1,25 @@
+localhost:80 {
+    root * /app/public
+    
+    # Serve static files directly
+    @static {
+        file
+        path *.js *.css *.png *.jpg *.jpeg *.gif *.svg *.ico *.woff *.woff2 *.ttf *.eot
+    }
+    handle @static {
+        header Cache-Control "public, max-age=31536000"
+        file_server
+    }
+    
+    # Route everything else to index.php
+    @notfile {
+        not file
+        not dir
+    }
+    handle @notfile {
+        rewrite * /index.php
+    }
+    
+    # PHP handler
+    php_fastcgi localhost:9000
+}
