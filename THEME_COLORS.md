@@ -1,29 +1,38 @@
-# Rencontre Éthique - New Theme Colors
+# Rencontre Éthique - BOLD Modern Theme
 
-## Color Palette
+## NEW COLOR PALETTE (Updated 2026-08-05)
 
 **Primary Colors:**
-- Deep Indigo: `#1e3a8a` (Main brand color - Islamic wisdom)
-- Rose Gold: `#b76e79` (Elegant accent - Romance)
-- Emerald: `#059669` (Success, growth, Islamic significance)
+- Sapphire Blue: `#0f3a7d` (Trustworthy, Islamic, deep)
+- Coral Pink: `#ff6b6b` (Bold, warm, distinctive, memorable)
+- Teal: `#17a2b8` (Fresh, modern, accessible)
 
 **Supporting Colors:**
-- Dark Slate: `#1f2937` (Text, dark backgrounds)
-- Light Cream: `#faf8f3` (Backgrounds, warm feel)
-- Soft Pearl: `#f3f0ed` (Subtle backgrounds)
-- Gold Accent: `#f59e0b` (Highlights, calls-to-action)
+- Almost Black: `#0d1117` (Strong contrast, text)
+- Pure White: `#ffffff` (Clean, modern, premium feel)
+- Light Gray: `#f8f9fa` (Subtle backgrounds)
 
 **Semantic Colors:**
-- Success: `#10b981`
-- Warning: `#f59e0b`
-- Error: `#ef4444`
-- Info: `#3b82f6`
+- Success: `#17a2b8`
+- Warning: `#ffc107`
+- Error: `#ff6b6b`
+- Info: `#0f3a7d`
 
-## Changes Made
+## Design Philosophy
 
-Old Colors → New Colors:
-- `#1C4532` (Dark Green) → `#1e3a8a` (Deep Indigo)
-- `#C8A028` (Gold) → `#b76e79` (Rose Gold) for primary accents
-- `#2D6A4F` (Forest Green) → `#059669` (Emerald)
-- `#6B7280` (Gray) → `#6b7280` (keep, but lighter)
-- Background gradients updated to match new palette
+- **Modern & Bold:** Sapphire Blue provides trust and spirituality
+- **Distinctive:** Coral Pink makes the brand stand out from competitors
+- **Clean:** White and light backgrounds for readability
+- **Islamic:** Deep blue reflects Islamic aesthetic
+- **Romantic:** Coral adds warmth and emotion (marriage focus)
+
+## Old vs New
+
+| Element | Old | New |
+|---------|-----|-----|
+| Primary | #1e3a8a (Indigo) | #0f3a7d (Sapphire Blue) |
+| Accent | #b76e79 (Rose Gold) | #ff6b6b (Coral Pink) |
+| Success | #059669 (Emerald) | #17a2b8 (Teal) |
+| Background | #faf8f3 (Cream) | #ffffff (White) |
+
+This theme is NOW completely distinctive and memorable!
