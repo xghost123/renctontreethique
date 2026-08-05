@@ -1,6 +1,14 @@
 :80 {
     root * /app/public
     
+    # Redirect HTTP to HTTPS
+    @http {
+        header X-Forwarded-Proto http
+    }
+    handle @http {
+        redir https://{host}{uri} permanent
+    }
+    
     # Serve static files directly
     @static {
         file

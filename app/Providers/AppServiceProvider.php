@@ -27,6 +27,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Force HTTPS in production (Railway uses HTTPS)
+        if ($this->app->environment('production')) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+        
         // Disable CSRF validation for specific routes
         ValidateCsrfToken::except(['mails/proposals']);
         Vite::prefetch(concurrency: 3);
