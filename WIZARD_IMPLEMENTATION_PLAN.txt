@@ -1,0 +1,471 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              PROFILE COMPLETION WIZARD - IMPLEMENTATION PLAN                ║
+║                                                                            ║
+║                    8-Step Onboarding for New Users                          ║
+║                    Estimated Time: 10-20 minutes                            ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WIZARD STRUCTURE
+════════════════════════════════════════════════════════════════════════════
+
+8 Steps (Sequential):
+  1. Informations générales (General Information)
+  2. Situation personnelle (Personal Situation)
+  3. Description physique (Physical Description)
+  4. Personnalité (Personality)
+  5. Projet familial (Family Project)
+  6. Critères importants (Important Criteria)
+  7. Vision & attente du mariage (Marriage Vision)
+  8. Mot de présentation (Presentation Message)
+
+Time Estimate: 10-20 minutes
+Progress Indicator: Step X/8 + percentage bar
+
+
+STEP 1: INFORMATIONS GÉNÉRALES (General Information)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Prénom (First name) - required, text input
+  • Nom de famille (Last name) - required, text input
+  • Date de naissance (Date of birth) - required, date picker
+  • Genre (Gender) - required, radio (Homme/Femme)
+  • Nationalité (Nationality) - required, dropdown
+  • Pays résidence (Country of residence) - required, dropdown
+  • Région/Division (Region/Division) - required, dropdown (dynamic based on country)
+  • Ville (City) - required, text/dropdown
+  • Profession (Profession) - required, text input
+  • Niveau d'études (Education level) - required, dropdown
+
+Validation:
+  • All fields required
+  • Age minimum 18 years
+  • Valid email format
+  • Phone number format
+
+
+STEP 2: SITUATION PERSONNELLE (Personal Situation)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Statut matrimonial (Marital status) - required, radio
+    - Célibataire (Single)
+    - Divorcé(e) (Divorced)
+    - Veuf/Veuve (Widowed)
+  
+  • Enfants (Children) - required, radio + conditional
+    - Oui (Yes) → How many? Number input
+    - Non (No)
+  
+  • Garde des enfants (Child custody) - conditional, if children=yes
+    - Avec moi (With me)
+    - Pas avec moi (Not with me)
+    - Autre (Other)
+  
+  • Situation financière (Financial situation) - optional, radio
+    - Aisée (Comfortable)
+    - Équilibrée (Balanced)
+    - Difficile (Difficult)
+  
+  • Logement (Housing) - required, radio
+    - Propriétaire (Owner)
+    - Locataire (Renter)
+    - Chez les parents (With parents)
+    - Autre (Other)
+  
+  • Indépendance financière (Financial independence) - required, radio
+    - Oui (Yes)
+    - Non (No)
+
+Validation:
+  • All required fields
+  • Conditional fields based on selections
+
+
+STEP 3: DESCRIPTION PHYSIQUE (Physical Description)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Taille (Height) - required, dropdown (cm)
+  • Morphologie (Build) - required, radio
+    - Mince (Thin)
+    - Athlétique (Athletic)
+    - Normal (Normal)
+    - Corpulent (Overweight)
+  
+  • Couleur de la peau (Skin color) - required, dropdown
+    - Très clair (Very light)
+    - Clair (Light)
+    - Moyen (Medium)
+    - Foncé (Dark)
+    - Très foncé (Very dark)
+  
+  • Couleur des yeux (Eye color) - required, dropdown
+  
+  • Cheveux (Hair) - required, dropdown
+    - Noirs (Black)
+    - Bruns (Brown)
+    - Blonds (Blonde)
+    - Roux (Red)
+    - Gris (Gray)
+    - Chauve (Bald)
+  
+  • Particularités (Distinctive features) - optional, textarea
+    - Tatouages, cicatrices, etc.
+  
+  • Photo de profil (Profile photo) - required, file upload
+    - Modeste/respectable (modest/respectful)
+    - With validation preview
+
+Validation:
+  • All required fields
+  • Valid height range
+  • Photo upload (size, format)
+
+
+STEP 4: PERSONNALITÉ (Personality)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Tempérament (Temperament) - required, checkboxes (select 1-3)
+    - Calme (Calm)
+    - Énergique (Energetic)
+    - Réfléchi (Thoughtful)
+    - Émotionnel (Emotional)
+    - Extraverti (Extroverted)
+    - Introverti (Introverted)
+  
+  • Qualités (Qualities) - required, checkboxes (select 2-4)
+    - Honnête (Honest)
+    - Responsable (Responsible)
+    - Loyal (Loyal)
+    - Gentil (Kind)
+    - Ambitieux (Ambitious)
+    - Humble (Humble)
+  
+  • Loisirs (Hobbies) - optional, checkboxes
+    - Sport
+    - Lecture
+    - Voyage
+    - Cuisine
+    - Art/Musique
+    - Etc.
+  
+  • Pratique religieuse (Religious practice) - required, radio
+    - Très pratiquant (Very practicing)
+    - Pratiquant (Practicing)
+    - Peu pratiquant (Less practicing)
+    - Non pratiquant (Non-practicing)
+  
+  • Années d'apprentissage religieux (Years of religious learning) - optional, dropdown
+  
+  • Langue(s) parlée(s) (Languages spoken) - required, checkboxes
+  
+  • Description personnelle (Personal description) - optional, textarea
+
+Validation:
+  • Select 1-3 temperament traits
+  • Select 2-4 qualities
+  • Religious practice selected
+
+
+STEP 5: PROJET FAMILIAL (Family Project)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Désire des enfants (Wants children) - required, radio
+    - Oui, plusieurs (Yes, several)
+    - Oui, un ou deux (Yes, one or two)
+    - Non, pas d'enfants (No children)
+    - À discuter (To discuss)
+  
+  • Nombre d'enfants idéal (Ideal number of children) - conditional, dropdown
+  
+  • Écartement entre enfants (Spacing between children) - optional, text
+  
+  • Éducation des enfants (Children education) - optional, textarea
+    - Approche pédagogique
+  
+  • Rôle du mari (Husband's role) - required, radio
+    - Principalement financier (Financially support)
+    - Partage des responsabilités (Shared responsibility)
+    - Impliqué au quotidien (Daily involvement)
+  
+  • Rôle de l'épouse (Wife's role) - required, radio
+    - Au foyer (Homemaker)
+    - Travail + foyer (Work + home)
+    - Carrière prioritaire (Career priority)
+    - À discuter (To discuss)
+  
+  • Lieu de vie (Place to live) - required, radio
+    - En France (In France)
+    - À l'étranger (Abroad)
+    - Pas de préférence (No preference)
+
+Validation:
+  • All required fields
+  • Conditional logic
+
+
+STEP 6: CRITÈRES IMPORTANTS (Important Criteria)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Âge préféré du/de la partenaire (Preferred partner age) - required, range slider
+    - Min-Max
+  
+  • Nationalité partenaire (Partner nationality) - required, checkboxes
+    - Importances (Very important, Important, Peu important)
+  
+  • Région/Division partenaire (Partner region) - required, radio
+    - Même région (Same region)
+    - Proche (Nearby)
+    - N'importe où (Anywhere)
+  
+  • Pratique religieuse partenaire (Partner's religious practice) - required, radio
+    - Très pratiquant (Very practicing)
+    - Pratiquant (Practicing)
+    - Peu pratiquant (Less practicing)
+    - Non important (Not important)
+  
+  • Niveau d'études partenaire (Partner education) - required, dropdown
+    - Études supérieures (Higher education)
+    - Bac/Diplôme (High school/Diploma)
+    - Pas important (Not important)
+  
+  • Situation financière partenaire (Partner's financial situation) - required, radio
+    - Aisée (Comfortable)
+    - Équilibrée (Balanced)
+    - Pas important (Not important)
+  
+  • Avec/sans enfants (With/without children) - required, radio
+    - Oui (Yes - willing)
+    - Non (No - prefer without)
+    - Pas important (Not important)
+  
+  • Traits de personnalité recherchés (Desired personality traits) - optional, checkboxes
+  
+  • Ce que je recherce (What I'm looking for) - required, textarea
+    - Key qualities sought
+
+Validation:
+  • Age range valid
+  • At least 3 criteria selected
+
+
+STEP 7: VISION & ATTENTE DU MARIAGE (Marriage Vision)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Objectif du mariage (Marriage goal) - required, radio
+    - Mariage rapide (Quick marriage)
+    - Mariage dans 6-12 mois (Marriage in 6-12 months)
+    - Mariage à long terme (Long-term marriage)
+    - À discuter (To discuss)
+  
+  • Type de relation cherché (Type of relationship sought) - required, radio
+    - Strictement traditionnel (Strictly traditional)
+    - Traditionnel avec ouverture (Traditional with openness)
+    - Égalitaire (Egalitarian)
+    - À discuter (To discuss)
+  
+  • Communication (Communication style) - required, radio
+    - Très importante (Very important)
+    - Important (Important)
+    - Moins important (Less important)
+  
+  • Résolution de conflits (Conflict resolution) - required, radio
+    - Discussion calme (Calm discussion)
+    - Médiation (Mediation/Consultation)
+    - Respect mutuel (Mutual respect)
+  
+  • Vie conjugale (Married life) - required, textarea
+    - Vision of married life
+  
+  • Importance du mahram (Mahram's role) - required, radio
+    - Très important (Very important)
+    - Important (Important)
+    - Moins important (Less important)
+  
+  • Attentes du mariage (Marriage expectations) - required, textarea
+    - What marriage means to them
+
+Validation:
+  • All required fields
+  • Textarea minimum 50 characters
+
+
+STEP 8: MOT DE PRÉSENTATION (Presentation Message)
+════════════════════════════════════════════════════════════════════════════
+
+Fields:
+  • Presentation personnelle (Personal presentation) - required, textarea
+    - 200-500 characters
+    - Self-introduction for potential matches
+  
+  • Message à transmettre (Message to convey) - optional, textarea
+    - Additional message
+  
+  • What makes you unique (Ce qui vous rend unique) - optional, textarea
+  
+  • Accept terms (Accepter les conditions) - required, checkbox
+    - "I confirm this information is accurate and respectable"
+  
+  • Consent to be contacted (Consentement contact) - required, checkbox
+    - "I accept to be contacted"
+
+Validation:
+  • Presentation minimum 50 characters, maximum 500
+  • All required fields
+  • Terms accepted
+
+
+════════════════════════════════════════════════════════════════════════════
+WIZARD UI COMPONENTS
+════════════════════════════════════════════════════════════════════════════
+
+Main Wizard Component:
+  ✓ WizardContainer.vue - Main wrapper
+  ✓ StepIndicator.vue - Progress bar + step numbers
+  ✓ StepForm.vue - Current step form container
+  ✓ WizardNavigation.vue - Previous/Next buttons
+  ✓ SaveProgress.vue - Auto-save indicator
+
+Form Fields:
+  ✓ TextInput.vue - Text fields
+  ✓ DatePickerInput.vue - Date picker
+  ✓ SelectDropdown.vue - Dropdown select
+  ✓ RadioGroup.vue - Radio buttons
+  ✓ CheckboxGroup.vue - Checkboxes
+  ✓ TextArea.vue - Large text area
+  ✓ RangeSlider.vue - Range input
+  ✓ FileUpload.vue - Photo upload
+  ✓ ProgressBar.vue - Visual progress
+
+Pages:
+  ✓ ProfileWizard.vue - Main wizard page (all steps)
+  ✓ Step1GeneralInfo.vue - Step 1 form
+  ✓ Step2PersonalSituation.vue - Step 2 form
+  ✓ Step3PhysicalDescription.vue - Step 3 form
+  ✓ Step4Personality.vue - Step 4 form
+  ✓ Step5FamilyProject.vue - Step 5 form
+  ✓ Step6ImportantCriteria.vue - Step 6 form
+  ✓ Step7MarriageVision.vue - Step 7 form
+  ✓ Step8Presentation.vue - Step 8 form
+  ✓ WizardComplete.vue - Completion confirmation
+
+
+════════════════════════════════════════════════════════════════════════════
+FEATURES
+════════════════════════════════════════════════════════════════════════════
+
+Functionality:
+  ✓ Step-by-step form progression
+  ✓ Auto-save to localStorage (draft)
+  ✓ Auto-save to database (save every step)
+  ✓ Back/Previous navigation
+  ✓ Progress indicator (X/8 steps)
+  ✓ Estimated time (10-20 minutes)
+  ✓ Form validation (client-side)
+  ✓ Error messages
+  ✓ Required field indicators
+  ✓ Conditional fields based on answers
+  ✓ Photo upload with preview
+  ✓ Summary review before completion
+  ✓ Completion confirmation
+
+User Experience:
+  ✓ Clean, modern design
+  ✓ Dark theme (green/gold)
+  ✓ Mobile responsive
+  ✓ Smooth transitions between steps
+  ✓ Clear instructions
+  ✓ Help text for complex fields
+  ✓ Loading indicators
+  ✓ Error handling
+  ✓ Success messages
+  ✓ Save indicators (auto-save feedback)
+
+Performance:
+  ✓ Client-side validation
+  ✓ Lazy loading of steps
+  ✓ Minimal re-renders
+  ✓ Optimized images upload
+  ✓ Efficient state management
+
+
+════════════════════════════════════════════════════════════════════════════
+DATABASE INTEGRATION
+════════════════════════════════════════════════════════════════════════════
+
+Model: Biodata (existing)
+  • Link to user_id
+  • All fields mapped to database columns
+  • Timestamps (created_at, updated_at)
+  • Soft deletes
+
+Additional Model: BiodataDraft
+  • Saves in-progress wizard data
+  • User can resume later
+  • Auto-cleanup after 30 days
+
+API Endpoints:
+  POST /api/biodata/step/{step} - Save individual step
+  POST /api/biodata/save-draft - Save full draft
+  GET /api/biodata/draft - Retrieve draft
+  POST /api/biodata/complete - Finalize biodata
+  GET /api/biodata/progress - Get completion progress
+  PUT /api/biodata/{id} - Update biodata
+
+
+════════════════════════════════════════════════════════════════════════════
+ROUTES
+════════════════════════════════════════════════════════════════════════════
+
+Web Routes:
+  GET /wizard - Start wizard (redirect to step 1)
+  GET /wizard/step/{step} - View specific step
+  GET /wizard/complete - Completion page
+
+API Routes:
+  POST /api/biodata/step/{step}
+  POST /api/biodata/save-draft
+  GET /api/biodata/draft
+  POST /api/biodata/complete
+
+
+════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+════════════════════════════════════════════════════════════════════════════
+
+Phase 1: Create wizard infrastructure
+  1. Create WizardContainer.vue (main component)
+  2. Create StepIndicator.vue (progress)
+  3. Create form input components
+  4. Create BioDataController (API endpoints)
+
+Phase 2: Create individual steps
+  5. Create Step1GeneralInfo.vue
+  6. Create Step2PersonalSituation.vue
+  7. Create Step3PhysicalDescription.vue
+  8. Create Step4Personality.vue
+  9. Create Step5FamilyProject.vue
+  10. Create Step6ImportantCriteria.vue
+  11. Create Step7MarriageVision.vue
+  12. Create Step8Presentation.vue
+
+Phase 3: Integration
+  13. Create ProfileWizard.vue (router page)
+  14. Add routes (web.php)
+  15. Add API endpoints (api.php)
+  16. Create BioData migrations (if needed)
+
+Phase 4: Testing & Polish
+  17. Test all steps
+  18. Test validation
+  19. Test auto-save
+  20. Test mobile responsiveness
+
+════════════════════════════════════════════════════════════════════════════

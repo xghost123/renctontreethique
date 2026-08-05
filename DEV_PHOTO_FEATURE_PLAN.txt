@@ -1,0 +1,268 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   📸 PROFILE PHOTOS - IMPLEMENTATION PLAN                   ║
+║                      Phase 1: Core Photo Management                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SPRINT TIMELINE: 4-5 DAYS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DAY 1: DATABASE & MODELS
+DAY 2: BACKEND API (Upload, Delete, Approve)
+DAY 3: FRONTEND COMPONENTS (Upload Form, Gallery)
+DAY 4: ADMIN APPROVAL SYSTEM
+DAY 5: TESTING & POLISHING
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+📋 DETAILED BREAKDOWN:
+
+DAY 1: DATABASE & MODELS
+────────────────────────────────────────────────────────────────────────────
+
+TASKS:
+  ☐ Create Photo migration
+  ☐ Create Photo model
+  ☐ Update Biodata model with relationship
+  ☐ Run migration
+
+FILES TO CREATE:
+  • database/migrations/2026_08_04_create_photos_table.php
+  • app/Models/Photo.php (new)
+
+FILES TO MODIFY:
+  • app/Models/Biodata.php (add hasMany Photos)
+  • app/Models/User.php (add photos through biodata)
+
+
+DAY 2: BACKEND API
+────────────────────────────────────────────────────────────────────────────
+
+TASKS:
+  ☐ Create PhotoController
+  ☐ Add upload endpoint
+  ☐ Add delete endpoint
+  ☐ Add approve endpoint (admin)
+  ☐ Add get photos endpoint
+  ☐ Image validation
+
+FILES TO CREATE:
+  • app/Http/Controllers/PhotoController.php (new)
+
+ROUTES TO ADD:
+  POST   /api/photos/upload         - Upload photo
+  DELETE /api/photos/{id}           - Delete photo
+  GET    /api/biodata/{id}/photos   - Get photos for profile
+  POST   /api/admin/photos/{id}/approve - Admin approve
+
+
+DAY 3: FRONTEND COMPONENTS
+────────────────────────────────────────────────────────────────────────────
+
+TASKS:
+  ☐ Create UploadPhoto component
+  ☐ Create PhotoGallery component
+  ☐ Add to Profile edit page
+  ☐ Add to Profile view page
+  ☐ Image preview
+  ☐ Progress indicator
+
+FILES TO CREATE:
+  • resources/js/Components/Photos/UploadPhoto.vue (new)
+  • resources/js/Components/Photos/PhotoGallery.vue (new)
+
+FILES TO MODIFY:
+  • resources/js/Pages/Profile/Edit.vue (add upload)
+  • resources/js/Pages/Profile/View.vue (show gallery)
+
+
+DAY 4: ADMIN APPROVAL
+────────────────────────────────────────────────────────────────────────────
+
+TASKS:
+  ☐ Add photos tab to admin panel
+  ☐ Show pending photos
+  ☐ Approve/reject UI
+  ☐ Preview photos
+  ☐ Modesty validation info
+
+FILES TO CREATE/MODIFY:
+  • resources/js/Components/Admin/Photos/PhotoApproval.vue (new)
+
+MODIFY:
+  • resources/js/Pages/Admin/Home.vue (add photos tab)
+  • app/Http/Controllers/AdminController.php (add photo endpoints)
+
+
+DAY 5: TESTING & POLISH
+────────────────────────────────────────────────────────────────────────────
+
+TASKS:
+  ☐ Test upload flow
+  ☐ Test deletion flow
+  ☐ Test approval flow
+  ☐ Test image validation
+  ☐ Test file storage
+  ☐ Error handling
+  ☐ Edge cases
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+TECHNICAL SPECIFICATIONS:
+
+DATABASE SCHEMA:
+────────────────
+photos table:
+  - id (bigint, PK)
+  - user_id (bigint, FK → users)
+  - biodata_id (bigint, FK → biodatas)
+  - path (string) - file path in storage
+  - original_filename (string)
+  - size (bigint) - in bytes
+  - mime_type (string) - image/jpeg, etc
+  - approved (boolean) - admin approval status
+  - approved_by (bigint, FK → users, nullable) - which admin approved
+  - approved_at (timestamp, nullable)
+  - display_order (integer) - for sorting gallery
+  - created_at (timestamp)
+  - updated_at (timestamp)
+
+
+IMAGE REQUIREMENTS:
+──────────────────
+File Types:   JPG, PNG, WebP
+Max Size:     5MB per image
+Min Size:     300x300px
+Max Images:   5 per profile
+Resolution:   Optimize to 1200x1200px
+Format:       Store as JPEG (quality 85%) for optimization
+
+
+STORAGE:
+────────
+Path: storage/app/public/photos/{user_id}/{photo_id}.jpg
+Public URL: /storage/photos/{user_id}/{photo_id}.jpg
+Symlink: php artisan storage:link (already done if exists)
+
+
+API ENDPOINTS:
+──────────────
+POST /api/photos/upload
+  Body:
+    - photo (file)
+    - biodata_id (integer)
+  Response:
+    {
+      "id": 1,
+      "path": "/storage/photos/1/photo_123.jpg",
+      "approved": false,
+      "size": 245682,
+      "message": "Photo uploaded successfully"
+    }
+
+DELETE /api/photos/{id}
+  Response:
+    { "message": "Photo deleted" }
+
+GET /api/biodata/{id}/photos
+  Response:
+    [
+      {
+        "id": 1,
+        "path": "/storage/photos/1/photo_123.jpg",
+        "approved": true,
+        "approved_at": "2026-08-04T10:00:00Z"
+      }
+    ]
+
+POST /api/admin/photos/approve
+  Body:
+    - photo_id (integer)
+    - approved (boolean)
+  Response:
+    { "message": "Photo approval updated" }
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+CODE STRUCTURE:
+
+Models:
+  Photo:
+    - belongsTo User
+    - belongsTo Biodata
+    - relationships for admin
+
+  Biodata:
+    - hasMany Photos
+    - approved_photos() - scope
+
+  User:
+    - through Biodata → Photos
+
+
+Controllers:
+  PhotoController:
+    - upload()
+    - delete()
+    - getByBiodata()
+    - store() helper for file operations
+
+  AdminController:
+    - approvePhoto()
+    - rejectPhoto()
+    - pendingPhotos()
+
+
+Vue Components:
+  UploadPhoto.vue:
+    - File input
+    - Drag & drop
+    - Image preview
+    - Upload progress
+    - Error handling
+
+  PhotoGallery.vue:
+    - Grid display
+    - Delete buttons (own photos)
+    - Approval badges
+    - Lightbox preview
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+SECURITY CONSIDERATIONS:
+
+✓ File validation (type + size)
+✓ User can only delete own photos
+✓ Only admin can approve photos
+✓ Prevent directory traversal
+✓ Scan for malware/exploits
+✓ Rate limiting on uploads
+✓ Quota per user (5 photos max)
+
+
+ERROR HANDLING:
+
+- File too large → "Image must be under 5MB"
+- Invalid format → "Only JPG, PNG, WebP allowed"
+- Upload failed → Retry mechanism
+- Database error → Graceful fallback
+- Storage error → Clear error message
+
+
+════════════════════════════════════════════════════════════════════════════
+
+NEXT PHASE (After Core):
+  • Image cropping tool
+  • Modesty validation (headshots only)
+  • Advanced gallery features
+  • Photo analytics (most viewed)
+  • Reordering (drag & drop)
+
+════════════════════════════════════════════════════════════════════════════
+
+Ready to start building? Let's go! 🚀
+
+Starting with: DAY 1 - DATABASE & MODELS

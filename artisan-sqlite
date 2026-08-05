@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+/**
+ * SQLite-enabled Artisan wrapper for Windows
+ * This script ensures SQLite PDO driver is loaded before any request
+ */
+
+// Force load SQLite extension if available
+if (!extension_loaded('pdo_sqlite')) {
+    $extensions = ['php_pdo_sqlite.dll', 'pdo_sqlite.so'];
+    foreach ($extensions as $ext) {
+        if (@dl($ext)) {
+            break;
+        }
+    }
+}
+
+if (!extension_loaded('sqlite3')) {
+    @dl('php_sqlite3.dll') || @dl('sqlite3.so');
+}
+
+// Verify SQLite is available
+if (!in_array('sqlite', PDO::getAvailableDrivers())) {
+    fwrite(STDERR, "ERROR: SQLite PDO driver not available.\n");
+    fwrite(STDERR, "Available drivers: " . implode(', ', PDO::getAvailableDrivers()) . "\n");
+    exit(1);
+}
+
+// Load and run artisan
+require __DIR__ . '/artisan';

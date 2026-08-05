@@ -1,0 +1,125 @@
+╔════════════════════════════════════════════════════════════════════╗
+║              MATRIMONY LARAVEL + VUE - QUICK START                 ║
+╚════════════════════════════════════════════════════════════════════╝
+
+✅ SETUP COMPLETE!
+
+Your project is ready for development with:
+  - SQLite database (no MySQL required)
+  - File-based sessions & cache (no Redis required)
+  - All 26 database tables created
+  - PHP 8.5 with SQLite support enabled
+
+═══════════════════════════════════════════════════════════════════════
+
+🚀 START DEVELOPING IN 2 STEPS:
+
+Step 1: Start Laravel API Server
+  
+  Command Prompt:
+    cd C:\Users\her\Documents\renctonre\matrimony-laravel-vue
+    dev.cmd serve
+  
+  OR Git Bash:
+    cd C:\Users\her\Documents\renctonre\matrimony-laravel-vue
+    ./dev.sh serve
+
+  Result: http://localhost:8000
+
+Step 2: Start Vue/Vite Frontend (in another terminal)
+  
+  npm run dev
+
+  Result: http://localhost:5173 (auto-proxied to backend)
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 HELPER COMMANDS:
+
+Windows (Command Prompt):
+  dev.cmd serve       - Start Laravel server
+  dev.cmd queue       - Start queue worker (if needed)
+  dev.cmd migrate     - Run database migrations
+  dev.cmd fresh       - Reset database fresh + seed
+
+Git Bash / WSL:
+  ./dev.sh serve
+  ./dev.sh queue
+  ./dev.sh migrate
+  ./dev.sh fresh
+
+Manual (Full Control):
+  php -c php.ini.dev artisan serve
+  npm run dev
+  php -c php.ini.dev artisan queue:listen --tries=1
+
+═══════════════════════════════════════════════════════════════════════
+
+📊 CURRENT SETUP:
+
+Database:
+  Type:     SQLite 3
+  Location: database/database.sqlite (208 KB)
+  Tables:   26 (users, biodata, proposals, messages, etc.)
+  State:    ✓ Ready for development
+
+Backend:
+  Framework: Laravel 12.12.0
+  PHP:       8.5.9
+  Config:    php.ini.dev (custom, SQLite enabled)
+
+Frontend:
+  Framework: Vue 3.5.13
+  Build:     Vite 6.2.2
+  Styles:    Tailwind CSS 3.4.17
+  Components: Inertia.js, DataTables
+
+Sessions:   File-based (storage/framework/sessions)
+Cache:      File-based (storage/framework/cache)
+Queue:      Synchronous (sync driver)
+
+═══════════════════════════════════════════════════════════════════════
+
+🔍 TROUBLESHOOTING:
+
+Issue: "SQLite driver not found"
+Fix:   Always use: php -c php.ini.dev [command]
+       Or use: ./dev.sh [command]
+
+Issue: Port 8000 already in use
+Fix:   Use different port: php -c php.ini.dev artisan serve --port=8001
+
+Issue: "SQLSTATE[HY000]: General error"
+Fix:   Reset database: rm database/database.sqlite
+       Then: ./dev.sh migrate
+
+═══════════════════════════════════════════════════════════════════════
+
+📚 DOCUMENTATION:
+
+  - See SETUP.md for detailed configuration
+  - Laravel docs: https://laravel.com/docs/12
+  - Vue docs: https://vuejs.org/
+  - Inertia.js: https://inertiajs.com/
+  - Tailwind: https://tailwindcss.com/
+
+═══════════════════════════════════════════════════════════════════════
+
+👤 PROJECT INFO:
+
+  Type:       Matrimony Platform
+  Frontend:   Admin & User panels (both Vue)
+  Contact:    rajon.kobir@gmail.com
+
+═══════════════════════════════════════════════════════════════════════
+
+Ready? Run:
+
+  cd C:\Users\her\Documents\renctonre\matrimony-laravel-vue
+  dev.cmd serve
+
+Then open another terminal and run:
+
+  npm run dev
+
+Happy coding! 🎉

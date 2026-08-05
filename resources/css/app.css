@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════ Rencontre Éthique — Design System ═══════════════
+   Palette (zawajuna-inspired, refined):
+   --re-green-900: #0D2218  (deepest)
+   --re-green-800: #163828  (hover)
+   --re-green-700: #1C4532  (primary deep green)
+   --re-green-600: #2D6A4F  (mid)
+   --re-gold:      #C8A028  (accent gold)
+   --re-gold-soft: #E4B84A
+   --re-cream:     #FBF7F0  (page bg)
+   --re-cream-2:   #F8F6F0  (card alt)
+   --re-sand:      #F0EDE6  (borders light)
+   --re-line:      #E2DDD5  (input border)
+   --re-ink:       #1C4532  (headings)
+   --re-muted:     #8A9680  (muted text)
+   Fonts: Cormorant Garamond (display serif) + Plus Jakarta Sans (body)
+*/
+
+:root {
+    --re-green-900: #0D2218;
+    --re-green-800: #163828;
+    --re-green-700: #1C4532;
+    --re-green-600: #2D6A4F;
+    --re-gold: #C8A028;
+    --re-gold-soft: #E4B84A;
+    --re-cream: #FBF7F0;
+    --re-cream-2: #F8F6F0;
+    --re-sand: #F0EDE6;
+    --re-line: #E2DDD5;
+    --re-ink: #1C4532;
+    --re-muted: #8A9680;
+}
+
+@layer base {
+    html {
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+        background: var(--re-cream);
+        color: #1C1C1C;
+        scroll-behavior: smooth;
+    }
+    body {
+        background: var(--re-cream);
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+    h1, h2, h3, .font-display {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+}
+
+@layer components {
+    /* ─── Buttons ─── */
+    .btn-re {
+        @apply inline-flex items-center justify-center font-medium transition-all duration-200 select-none;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .btn-re-primary {
+        background: var(--re-green-700);
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(28, 69, 50, .25);
+    }
+    .btn-re-primary:hover {
+        background: var(--re-green-800);
+        box-shadow: 0 4px 16px rgba(28, 69, 50, .35);
+    }
+    .btn-re-primary:active { transform: scale(.98); }
+    .btn-re-gold {
+        background: var(--re-gold);
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(200, 160, 40, .35);
+    }
+    .btn-re-gold:hover { background: #B18E20; }
+    .btn-re-ghost {
+        background: transparent;
+        color: var(--re-green-700);
+        border: 1.5px solid rgba(28, 69, 50, .25);
+        border-radius: 12px;
+    }
+    .btn-re-ghost:hover {
+        border-color: var(--re-green-700);
+        background: rgba(28, 69, 50, .04);
+    }
+
+    /* ─── Cards ─── */
+    .card-re {
+        background: #fff;
+        border-radius: 20px;
+        border: 1px solid rgba(28, 69, 50, .08);
+        box-shadow: 0 1px 2px rgba(28, 69, 50, .04),
+                    0 4px 16px rgba(28, 69, 50, .08),
+                    0 16px 40px rgba(28, 69, 50, .06);
+    }
+
+    /* ─── Form fields (zawajuna-style) ─── */
+    .field-input-re {
+        height: 44px;
+        border-radius: 10px;
+        border: 1.5px solid var(--re-line);
+        background: #FAFAF8;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: .9rem;
+        color: #1C1C1C;
+        padding: 0 12px;
+        width: 100%;
+        transition: border-color .15s, box-shadow .15s, background .15s;
+    }
+    .field-input-re:focus {
+        outline: none;
+        border-color: var(--re-green-700);
+        box-shadow: 0 0 0 3px rgba(28, 69, 50, .1);
+        background: #fff;
+    }
+    .field-label-re {
+        font-size: .78rem;
+        font-weight: 500;
+        color: #3D4A3E;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+    }
+
+    /* ─── Islamic geometric pattern (zawajuna-style dots) ─── */
+    .pattern-re {
+        background-image:
+            radial-gradient(circle at 25% 25%, transparent 22px, rgba(28, 69, 50, .04) 22px, rgba(28, 69, 50, .04) 23px, transparent 23px),
+            radial-gradient(circle at 75% 75%, transparent 22px, rgba(28, 69, 50, .04) 22px, rgba(28, 69, 50, .04) 23px, transparent 23px),
+            radial-gradient(circle at 75% 25%, transparent 22px, rgba(28, 69, 50, .04) 22px, rgba(28, 69, 50, .04) 23px, transparent 23px),
+            radial-gradient(circle at 25% 75%, transparent 22px, rgba(28, 69, 50, .04) 22px, rgba(28, 69, 50, .04) 23px, transparent 23px);
+        background-size: 60px 60px;
+    }
+
+    /* ─── Gold divider with gem (zawajuna ornament) ─── */
+    .divider-re {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--re-gold);
+    }
+    .divider-re::before, .divider-re::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(200, 160, 40, .5), transparent);
+    }
+
+    /* ─── Section titles ─── */
+    .section-title-re {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 500;
+        color: var(--re-ink);
+        letter-spacing: -.01em;
+        line-height: 1.15;
+    }
+    .section-sub-re {
+        color: var(--re-muted);
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes reFadeUp {
+        0% { opacity: 0; transform: translateY(16px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .re-fade-up { animation: reFadeUp .5s ease both; }
+    .re-fade-up-1 { animation: reFadeUp .5s ease .08s both; }
+    .re-fade-up-2 { animation: reFadeUp .5s ease .16s both; }
+    .re-fade-up-3 { animation: reFadeUp .5s ease .24s both; }
+    .re-fade-up-4 { animation: reFadeUp .5s ease .32s both; }
+    .re-fade-up-5 { animation: reFadeUp .5s ease .4s both; }
+}
