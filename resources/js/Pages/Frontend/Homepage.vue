@@ -40,7 +40,7 @@
             Rencontre Éthique
           </h1>
           <p class="hero-subtitle text-xl sm:text-2xl text-gray-100 font-light mb-8 max-w-2xl mx-auto">
-            Premium Islamic Matrimony for Serious, Values-Driven Matches
+            Matrimonial Islamique Premium pour des Rencontres Sérieuses et Éthiques
           </p>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-delay">
           <button class="premium-btn btn-primary group relative px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
             <span class="relative z-10 flex items-center gap-2">
-              Begin Your Journey
+              Commencer Mon Voyage
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
@@ -56,7 +56,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
           <button class="premium-btn btn-secondary px-10 py-4 text-lg font-semibold text-sapphire-blue border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5">
-            Learn More
+            En Savoir Plus
           </button>
         </div>
 
@@ -73,7 +73,7 @@
     <section class="value-props-section py-24 px-4 sm:px-6 lg:px-8 relative z-20 bg-gradient-to-b from-dark-slate-900 via-dark-slate-800 to-dark-slate-900">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20">
-          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Why Rencontre Éthique?</h2>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Pourquoi Rencontre Éthique?</h2>
           <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full"></div>
         </div>
 
@@ -87,8 +87,8 @@
                   <path d="M10 3.5c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5S7.5 7.38 7.5 6 8.62 3.5 10 3.5zm0 8c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zm6-8c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Halal Values</h3>
-              <p class="text-gray-300 leading-relaxed">Faith-centered matches guided by Islamic principles and ethical practices for meaningful connections.</p>
+              <h3 class="text-2xl font-bold text-white mb-4">Valeurs Halal</h3>
+              <p class="text-gray-300 leading-relaxed">Des rencontres centrées sur la foi, guidées par les principes islamiques et les pratiques éthiques pour des connexions significatives.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
                 <span class="text-teal text-sm font-semibold">Learn more →</span>
               </div>
@@ -103,7 +103,7 @@
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v2h8v-2zM16 15v2h2v-2zM2 8a2 2 0 11-4 0 2 2 0 014 0zM6 15v2H4v-2z"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Thriving Community</h3>
+              <h3 class="text-2xl font-bold text-white mb-4">Communauté Florissante</h3>
               <p class="text-gray-300 leading-relaxed">Connect with thousands of like-minded individuals sharing your values and relationship goals.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
                 <span class="text-teal text-sm font-semibold">Learn more →</span>
@@ -119,7 +119,7 @@
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Complete Privacy</h3>
+              <h3 class="text-2xl font-bold text-white mb-4">Confidentialité Totale</h3>
               <p class="text-gray-300 leading-relaxed">Your data is sacred. Enterprise-grade encryption and privacy controls you command.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
                 <span class="text-teal text-sm font-semibold">Learn more →</span>
@@ -136,7 +136,7 @@
                   <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2h-.5A1.5 1.5 0 006 6.5v9a1.5 1.5 0 01-1.5 1.5H4a2 2 0 01-2-2v-4a1 1 0 112 0v4h.5a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5H6a1 1 0 100-2H6a2 2 0 00-2 2v4a1 1 0 11-2 0v-4a2 2 0 012-2zm7-2a1 1 0 000 2h2a1 1 0 100-2h-2z"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Serious Intentions</h3>
+              <h3 class="text-2xl font-bold text-white mb-4">Intentions Sérieuses</h3>
               <p class="text-gray-300 leading-relaxed">Verified members committed to marriage. Quality over quantity for meaningful relationships.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
                 <span class="text-teal text-sm font-semibold">Learn more →</span>
@@ -147,11 +147,11 @@
       </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- Comment Ça Marche Section -->
     <section class="how-it-works-section py-24 px-4 sm:px-6 lg:px-8 relative z-20">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-20">
-          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">How It Works</h2>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Comment Ça Marche</h2>
           <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full"></div>
         </div>
 
@@ -228,11 +228,11 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Témoignages Section -->
     <section class="testimonials-section py-24 px-4 sm:px-6 lg:px-8 relative z-20 bg-gradient-to-b from-dark-slate-800 to-dark-slate-900">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-20">
-          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Success Stories</h2>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Histoires de Succès</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">Real connections, real love, real journeys from our community</p>
           <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full mt-6"></div>
         </div>
@@ -380,7 +380,7 @@
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                   <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2h-.5A1.5 1.5 0 006 6.5v9a1.5 1.5 0 01-1.5 1.5H4a2 2 0 01-2-2v-4a1 1 0 112 0v4h.5a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5H6a1 1 0 100-2H6a2 2 0 00-2 2v4a1 1 0 11-2 0v-4a2 2 0 012-2z"/>
                 </svg>
-                <span>Serious Matches Only</span>
+                <span>Rencontres Sérieuses Uniquement</span>
               </div>
             </div>
           </div>
@@ -395,17 +395,17 @@
           <!-- Brand -->
           <div>
             <h3 class="text-2xl font-bold text-white mb-4">Rencontre Éthique</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Premium Islamic matrimony platform for serious, values-driven matches.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">Plateforme matrimoniale islamique premium pour des rencontres sérieuses et éthiques.</p>
           </div>
 
           <!-- Quick Links -->
           <div>
             <h4 class="text-white font-bold mb-4">Platform</h4>
             <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="#" class="hover:text-teal transition-colors">How It Works</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Browse Profiles</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Success Stories</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Pricing</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Comment Ça Marche</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Parcourir les Profils</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Histoires de Succès</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Tarification</a></li>
             </ul>
           </div>
 
@@ -413,9 +413,9 @@
           <div>
             <h4 class="text-white font-bold mb-4">Company</h4>
             <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="#" class="hover:text-teal transition-colors">About Us</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">À Propos de Nous</a></li>
               <li><a href="#" class="hover:text-teal transition-colors">Blog</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Careers</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Carrières</a></li>
               <li><a href="#" class="hover:text-teal transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -424,17 +424,17 @@
           <div>
             <h4 class="text-white font-bold mb-4">Legal</h4>
             <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="#" class="hover:text-teal transition-colors">Privacy Policy</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Terms of Service</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Community Guidelines</a></li>
-              <li><a href="#" class="hover:text-teal transition-colors">Cookie Policy</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Politique de Confidentialité</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Conditions d'Utilisation</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Directives Communautaires</a></li>
+              <li><a href="#" class="hover:text-teal transition-colors">Politique des Cookies</a></li>
             </ul>
           </div>
         </div>
 
         <!-- Bottom Footer -->
         <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-gray-500">© 2024 Rencontre Éthique. All rights reserved. | Committed to Islamic ethics and values.</p>
+          <p class="text-sm text-gray-500">© 2026 Rencontre Éthique. Tous droits réservés. | Engagés aux valeurs islamiques.</p>
           <div class="flex gap-6">
             <a href="#" class="text-gray-400 hover:text-teal transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
