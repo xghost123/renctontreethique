@@ -40,7 +40,7 @@
             Rencontre Éthique
           </h1>
           <p class="hero-subtitle text-xl sm:text-2xl text-gray-100 font-light mb-8 max-w-2xl mx-auto">
-            Matrimonial Islamique Premium pour des Rencontres Sérieuses et Éthiques
+            Rencontrez votre moitié au sein de votre communauté
           </p>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-delay">
           <button class="premium-btn btn-primary group relative px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
             <span class="relative z-10 flex items-center gap-2">
-              Commencer Mon Voyage
+              Créer mon profil gratuitement
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
@@ -69,8 +69,8 @@
       </div>
     </section>
 
-    <!-- Value Propositions Section -->
-    <section class="value-props-section py-24 px-4 sm:px-6 lg:px-8 relative z-20 bg-gradient-to-b from-dark-slate-900 via-dark-slate-800 to-dark-slate-900">
+    <!-- Why Rencontre Éthique Section -->
+    <section class="why-section py-24 px-4 sm:px-6 lg:px-8 relative z-20 bg-gradient-to-b from-dark-slate-900 via-dark-slate-800 to-dark-slate-900">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20">
           <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Pourquoi Rencontre Éthique?</h2>
@@ -79,39 +79,39 @@
 
         <!-- Value Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Card 1: Halal -->
+          <!-- Card 1: Profils Locaux Confirmés -->
           <div class="value-card group cursor-pointer">
             <div class="card-glass relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 h-full transform hover:scale-105 hover:-translate-y-2">
               <div class="card-icon mb-6 w-16 h-16 rounded-xl bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center group-hover:shadow-2xl transition-shadow">
                 <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 3.5c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5S7.5 7.38 7.5 6 8.62 3.5 10 3.5zm0 8c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zm6-8c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/>
+                  <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Valeurs Halal</h3>
-              <p class="text-gray-300 leading-relaxed">Des rencontres centrées sur la foi, guidées par les principes islamiques et les pratiques éthiques pour des connexions significatives.</p>
+              <h3 class="text-2xl font-bold text-white mb-4">Profils Locaux Confirmés</h3>
+              <p class="text-gray-300 leading-relaxed">Chaque profil est lié à une mosquée et validé par 2 témoins de la communauté pour garantir l'authenticité et la confiance.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
-                <span class="text-teal text-sm font-semibold">Learn more →</span>
+                <span class="text-teal text-sm font-semibold">Vérification garantie →</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 2: Community -->
+          <!-- Card 2: Cadre Légifié -->
           <div class="value-card group cursor-pointer">
             <div class="card-glass relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 h-full transform hover:scale-105 hover:-translate-y-2">
               <div class="card-icon mb-6 w-16 h-16 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center group-hover:shadow-2xl transition-shadow">
                 <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v2h8v-2zM16 15v2h2v-2zM2 8a2 2 0 11-4 0 2 2 0 014 0zM6 15v2H4v-2z"/>
+                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H7a1 1 0 01-1-1v-6z" clip-rule="evenodd" />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Communauté Florissante</h3>
-              <p class="text-gray-300 leading-relaxed">Connect with thousands of like-minded individuals sharing your values and relationship goals.</p>
+              <h3 class="text-2xl font-bold text-white mb-4">Cadre Légifié</h3>
+              <p class="text-gray-300 leading-relaxed">Un Mahram est impliqué, sans échanges directs sans médiation pour respecter les principes islamiques.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
-                <span class="text-teal text-sm font-semibold">Learn more →</span>
+                <span class="text-teal text-sm font-semibold">Éthique garantie →</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: Privacy -->
+          <!-- Card 3: Vie Privée Protégée -->
           <div class="value-card group cursor-pointer">
             <div class="card-glass relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 h-full transform hover:scale-105 hover:-translate-y-2">
               <div class="card-icon mb-6 w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center group-hover:shadow-2xl transition-shadow">
@@ -119,27 +119,26 @@
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Confidentialité Totale</h3>
-              <p class="text-gray-300 leading-relaxed">Your data is sacred. Enterprise-grade encryption and privacy controls you command.</p>
+              <h3 class="text-2xl font-bold text-white mb-4">Vie Privée Protégée</h3>
+              <p class="text-gray-300 leading-relaxed">Anonymat total, données protégées, contrôle complet de vos informations personnelles.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
-                <span class="text-teal text-sm font-semibold">Learn more →</span>
+                <span class="text-teal text-sm font-semibold">Confidentialité →</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 4: Serious -->
+          <!-- Card 4: Gratuit -->
           <div class="value-card group cursor-pointer">
             <div class="card-glass relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 h-full transform hover:scale-105 hover:-translate-y-2">
               <div class="card-icon mb-6 w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center group-hover:shadow-2xl transition-shadow">
                 <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
-                  <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2h-.5A1.5 1.5 0 006 6.5v9a1.5 1.5 0 01-1.5 1.5H4a2 2 0 01-2-2v-4a1 1 0 112 0v4h.5a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5H6a1 1 0 100-2H6a2 2 0 00-2 2v4a1 1 0 11-2 0v-4a2 2 0 012-2zm7-2a1 1 0 000 2h2a1 1 0 100-2h-2z"/>
+                  <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Intentions Sérieuses</h3>
-              <p class="text-gray-300 leading-relaxed">Verified members committed to marriage. Quality over quantity for meaningful relationships.</p>
+              <h3 class="text-2xl font-bold text-white mb-4">Gratuit</h3>
+              <p class="text-gray-300 leading-relaxed">100% gratuit, à but non lucratif, piloté par la communauté pour le bien de tous.</p>
               <div class="mt-6 pt-6 border-t border-white/10">
-                <span class="text-teal text-sm font-semibold">Learn more →</span>
+                <span class="text-teal text-sm font-semibold">Sans frais →</span>
               </div>
             </div>
           </div>
@@ -147,80 +146,129 @@
       </div>
     </section>
 
-    <!-- Comment Ça Marche Section -->
+    <!-- Comment Ça Fonctionne Section -->
     <section class="how-it-works-section py-24 px-4 sm:px-6 lg:px-8 relative z-20">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-20">
-          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Comment Ça Marche</h2>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Comment Ça Fonctionne</h2>
           <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full"></div>
         </div>
 
         <!-- Steps Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           <!-- Connection lines for desktop -->
           <div class="hidden lg:block absolute top-1/3 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal to-transparent opacity-30"></div>
 
-          <!-- Step 1 -->
+          <!-- Step 1: Inscription -->
           <div class="step-card group relative">
             <div class="flex flex-col items-center">
               <div class="step-number w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center text-white text-2xl font-bold mb-6 relative z-10 shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
                 1
               </div>
               <div class="step-content text-center">
-                <h3 class="text-xl font-bold text-white mb-3">Create Profile</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Tell your story. Share your values, interests, and relationship goals with beautiful profile customization.</p>
+                <h3 class="text-xl font-bold text-white mb-3">Étape 1: Inscription</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Complétez votre profil avec engagement respectueux focalisé sur le mariage.</p>
               </div>
             </div>
           </div>
 
-          <!-- Step 2 -->
+          <!-- Step 2: Confirmation -->
           <div class="step-card group relative">
             <div class="flex flex-col items-center">
               <div class="step-number w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl font-bold mb-6 relative z-10 shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
                 2
               </div>
               <div class="step-content text-center">
-                <h3 class="text-xl font-bold text-white mb-3">Browse Matches</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Discover compatible matches using smart filters aligned with your Islamic values and preferences.</p>
+                <h3 class="text-xl font-bold text-white mb-3">Étape 2: Confirmation</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">2 témoins de la mosquée valident votre profil pour garantir l'authenticité.</p>
               </div>
             </div>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Step 3: Recherche -->
           <div class="step-card group relative">
             <div class="flex flex-col items-center">
               <div class="step-number w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold mb-6 relative z-10 shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
                 3
               </div>
               <div class="step-content text-center">
-                <h3 class="text-xl font-bold text-white mb-3">Connect Respectfully</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Send interest or messages in a secure, moderated environment that respects Islamic etiquette.</p>
+                <h3 class="text-xl font-bold text-white mb-3">Étape 3: Recherche</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Accédez à des profils anonymes de votre mosquée et alentours, filtrez par critères, demandez des échanges.</p>
               </div>
             </div>
           </div>
 
-          <!-- Step 4 -->
+          <!-- Step 4: Mise en Relation -->
           <div class="step-card group relative">
             <div class="flex flex-col items-center">
               <div class="step-number w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl font-bold mb-6 relative z-10 shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
                 4
               </div>
               <div class="step-content text-center">
-                <h3 class="text-xl font-bold text-white mb-3">Get to Know</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Chat, video call, and share moments in a safe space to build genuine connections.</p>
+                <h3 class="text-xl font-bold text-white mb-3">Étape 4: Mise en Relation</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Une fois compatible, révélez les identités au Mahram et à l'autre partie uniquement.</p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Step 5 -->
-          <div class="step-card group relative">
-            <div class="flex flex-col items-center">
-              <div class="step-number w-20 h-20 rounded-full bg-gradient-to-br from-coral-pink to-red-600 flex items-center justify-center text-white text-2xl font-bold mb-6 relative z-10 shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
-                5
-              </div>
-              <div class="step-content text-center">
-                <h3 class="text-xl font-bold text-white mb-3">Find Your Match</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">When you connect, explore family introduction and wedding planning with complete support.</p>
+    <!-- Une Cause Section -->
+    <section class="cause-section py-24 px-4 sm:px-6 lg:px-8 relative z-20 bg-gradient-to-b from-dark-slate-900 via-dark-slate-800 to-dark-slate-900">
+      <div class="max-w-4xl mx-auto">
+        <div class="cause-glass relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl p-12 sm:p-16">
+          <!-- Animated background elements -->
+          <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-teal-500 to-transparent rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-500 to-transparent rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="relative z-10">
+            <div class="text-center mb-12">
+              <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Une Cause</h2>
+              <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-6">
+              <p class="text-xl text-gray-100 leading-relaxed">
+                <span class="font-semibold text-transparent bg-gradient-to-r from-pink-400 to-teal-400 bg-clip-text">Rencontre Éthique</span> est une initiative lancée pour faciliter à notre communauté les rencontres en vue du mariage dans un cadre préservé et articulé autour d'un lieu au cœur, <span class="font-semibold text-transparent bg-gradient-to-r from-teal-400 to-pink-400 bg-clip-text">la mosquée</span>.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                <!-- Besoin Communautaire -->
+                <div class="cause-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v2h8v-2zM16 15v2h2v-2zM2 8a2 2 0 11-4 0 2 2 0 014 0zM6 15v2H4v-2z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2">Besoin Communautaire</h3>
+                  <p class="text-sm text-gray-300">Répondre aux besoins réels de notre communauté pour des rencontres dignes et respectueuses.</p>
+                </div>
+
+                <!-- Alternative Saine -->
+                <div class="cause-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 11-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2">Alternative Saine</h3>
+                  <p class="text-sm text-gray-300">Offrir une alternative vertueuse aux plateformes conventionnelles et respectueuse des valeurs islamiques.</p>
+                </div>
+
+                <!-- Intégration Mahram -->
+                <div class="cause-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300">
+                  <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2">Rôle du Mahram</h3>
+                  <p class="text-sm text-gray-300">Intégrer le Mahram au cœur du processus pour garantir l'éthique et la protection mutuelle.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -233,7 +281,7 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-20">
           <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">Histoires de Succès</h2>
-          <p class="text-xl text-gray-300 max-w-2xl mx-auto">Real connections, real love, real journeys from our community</p>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">Connexions authentiques, amour sincère, parcours réels de notre communauté</p>
           <div class="w-24 h-1 bg-gradient-to-r from-coral-pink to-teal mx-auto rounded-full mt-6"></div>
         </div>
 
@@ -251,7 +299,7 @@
               </div>
 
               <p class="text-gray-200 italic mb-6 leading-relaxed">
-                Rencontre Éthique helped me find someone who truly shares my values. The platform respects our faith and makes meaningful connections possible.
+                Rencontre Éthique m'a aidé à trouver quelqu'un qui partage vraiment mes valeurs. La plateforme respecte notre foi et rend les connexions significatives possibles.
               </p>
 
               <!-- Author -->
@@ -261,7 +309,7 @@
                 </div>
                 <div>
                   <p class="font-bold text-white">Aisha & Ahmad</p>
-                  <p class="text-sm text-gray-400">Married 6 months ago</p>
+                  <p class="text-sm text-gray-400">Mariés il y a 6 mois</p>
                 </div>
               </div>
             </div>
@@ -279,7 +327,7 @@
               </div>
 
               <p class="text-gray-200 italic mb-6 leading-relaxed">
-                I felt safe and respected throughout my experience. The verification process ensures quality matches. Highly recommended for serious seekers!
+                Je me suis sentie en sécurité et respectée tout au long de mon expérience. Le processus de vérification assure des correspondances de qualité. Hautement recommandé pour les chercheurs sérieux!
               </p>
 
               <!-- Author -->
@@ -289,7 +337,7 @@
                 </div>
                 <div>
                   <p class="font-bold text-white">Fatima & Karim</p>
-                  <p class="text-sm text-gray-400">Engaged recently</p>
+                  <p class="text-sm text-gray-400">Fiancés récemment</p>
                 </div>
               </div>
             </div>
@@ -307,7 +355,7 @@
               </div>
 
               <p class="text-gray-200 italic mb-6 leading-relaxed">
-                The community here is genuinely supportive and the values-based matching is incredible. Found my soulmate without compromising my principles!
+                La communauté ici est vraiment soutenante et la mise en correspondance basée sur les valeurs est incroyable. J'ai trouvé mon âme sœur sans compromettre mes principes!
               </p>
 
               <!-- Author -->
@@ -317,7 +365,7 @@
                 </div>
                 <div>
                   <p class="font-bold text-white">Noor & Hassan</p>
-                  <p class="text-sm text-gray-400">Wedding next year</p>
+                  <p class="text-sm text-gray-400">Mariage l'année prochaine</p>
                 </div>
               </div>
             </div>
@@ -339,17 +387,17 @@
           <!-- Content -->
           <div class="relative z-10 text-center">
             <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Ready to Find Your Perfect Match?
+              Retrouvez les Profils Sérieux Près de Chez Vous
             </h2>
             <p class="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
-              Join thousands of serious seekers finding love and connection the Islamic way. Your journey to finding your soulmate starts here.
+              Rejoignez des milliers de chercheurs sincères trouvant l'amour et la connexion de la manière islamique. Votre voyage vers trouver votre âme sœur commence ici.
             </p>
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
               <button class="premium-btn btn-primary-large group relative px-12 py-5 text-xl font-bold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
                 <span class="relative z-10 flex items-center justify-center gap-2">
-                  Sign Up Free
+                  Créer mon profil gratuitement
                   <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
@@ -357,7 +405,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button class="premium-btn btn-secondary-large px-12 py-5 text-xl font-bold text-sapphire-blue border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5">
-                Schedule Demo
+                En Savoir Plus
               </button>
             </div>
 
@@ -367,13 +415,13 @@
                 <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
-                <span>Verified Profiles</span>
+                <span>Profils Vérifiés</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
                 </svg>
-                <span>100% Secure & Private</span>
+                <span>100% Sécurisé & Privé</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
@@ -400,7 +448,7 @@
 
           <!-- Quick Links -->
           <div>
-            <h4 class="text-white font-bold mb-4">Platform</h4>
+            <h4 class="text-white font-bold mb-4">Plateforme</h4>
             <ul class="space-y-2 text-sm text-gray-400">
               <li><a href="#" class="hover:text-teal transition-colors">Comment Ça Marche</a></li>
               <li><a href="#" class="hover:text-teal transition-colors">Parcourir les Profils</a></li>
@@ -411,7 +459,7 @@
 
           <!-- Company -->
           <div>
-            <h4 class="text-white font-bold mb-4">Company</h4>
+            <h4 class="text-white font-bold mb-4">Entreprise</h4>
             <ul class="space-y-2 text-sm text-gray-400">
               <li><a href="#" class="hover:text-teal transition-colors">À Propos de Nous</a></li>
               <li><a href="#" class="hover:text-teal transition-colors">Blog</a></li>
@@ -422,7 +470,7 @@
 
           <!-- Legal -->
           <div>
-            <h4 class="text-white font-bold mb-4">Legal</h4>
+            <h4 class="text-white font-bold mb-4">Légal</h4>
             <ul class="space-y-2 text-sm text-gray-400">
               <li><a href="#" class="hover:text-teal transition-colors">Politique de Confidentialité</a></li>
               <li><a href="#" class="hover:text-teal transition-colors">Conditions d'Utilisation</a></li>
@@ -443,7 +491,7 @@
             </a>
             <a href="#" class="text-gray-400 hover:text-teal transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M19 3.795a6.738 6.738 0 01-1.885.516 3.262 3.262 0 001.431-1.795 6.541 6.541 0 01-2.080.794 3.28 3.28 0 00-5.674 2.243c0 .26.03.51.09.75a9.318 9.318 0 01-6.767-3.429 3.29 3.29 0 001.015 4.382 3.281 3.281 0 01-1.487-.411v.041a3.288 3.288 0 002.633 3.22 3.28 3.28 0 01-.148.627 3.268 3.268 0 002.991 2.207 6.579 6.579 0 01-4.076 1.404c-.264 0-.528-.015-.788-.046a9.364 9.364 0 005.064 1.478c6.075 0 9.388-5.582 9.388-10.422 0-.159-.003-.318-.01-.476a6.727 6.727 0 001.650-1.72z"/>
+                <path d="M19 3.795a6.738 6.738 0 01-1.885.516 3.262 3.262 0 001.431-1.795 6.541 6.541 0 01-2.080.794 3.28 3.28 0 00-5.674 2.243c0 .26.03.51.09.75a9.318 9.318 0 01-6.767-3.429 3.29 3.29 0 001.015 4.382 3.281 3.281 0 01-1.487-.411v.041a3.288 3.288 0 002.633 3.22 3.28 3.28 0 01-.148.627 3.268 3.268 0 002.991 2.207 6.579 6.579 0 01-4.076 1.404c-.264 0-.528-.015-.788-.046a9.364 9.364 0 005.064 1.478c6.075 0 9.388-5.582 9.388-10.422 0-.159-.003-.318-.01-.476a6.727 6.727 0 001.65-1.72z"/>
               </svg>
             </a>
             <a href="#" class="text-gray-400 hover:text-teal transition-colors">
@@ -488,7 +536,7 @@ export default {
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.value-card, .testimonial-card, .step-card').forEach((el) => {
+      document.querySelectorAll('.value-card, .testimonial-card, .step-card, .cause-card').forEach((el) => {
         observer.observe(el);
       });
     },
@@ -724,8 +772,8 @@ export default {
   min-width: 200px;
 }
 
-/* ===== VALUE PROPOSITIONS SECTION ===== */
-.value-props-section {
+/* ===== WHY SECTION ===== */
+.why-section {
   position: relative;
 }
 
@@ -797,10 +845,6 @@ export default {
   background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
 }
 
-.step-card:nth-child(5) .step-number {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
-}
-
 .step-card.animate-in .step-number {
   animation: scaleUp 0.6s ease-out;
 }
@@ -819,6 +863,39 @@ export default {
 .step-card.animate-in .step-content {
   animation: fadeInUp 0.6s ease-out 0.2s forwards;
   opacity: 0;
+}
+
+/* ===== CAUSE SECTION ===== */
+.cause-section {
+  position: relative;
+}
+
+.cause-glass {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cause-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+}
+
+.cause-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cause-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.1);
+}
+
+.cause-card.animate-in {
+  animation: slideInCard 0.6s ease-out forwards;
 }
 
 /* ===== TESTIMONIALS SECTION ===== */
@@ -899,6 +976,10 @@ export default {
 
   .cta-glass h2 {
     font-size: 2rem;
+  }
+
+  .cause-glass {
+    padding: 2rem;
   }
 }
 
