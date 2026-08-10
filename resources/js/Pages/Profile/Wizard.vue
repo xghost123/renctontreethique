@@ -17,9 +17,9 @@ const toast = ref(null);
 const gender = ref('male');
 
 const data = ref({
-    kounia: '', age: '', city: '', whatsapp: '', whatsappCode: '+33', nationality: '',
-    permanent_country: '', origine: '', spoken_langage: 'Français',
-    maritial_status: '', polygamy: '', boys: 0, girls: 0, dependentchildren: '', children_details: '',
+    kounia: '', age: '', city: '', mosque_name: '', whatsapp: '', whatsappCode: '+33', nationality: '',
+    permanent_country: '', relocation_acceptance: '', origine: '', spoken_langage: 'Français',
+    maritial_status: '', polygamy: '', boys: 0, girls: 0, dependentchildren: '', divorce_count: '', children_details: '',
     has_tutor: '', tutorname: '', tutorphone: '', tutorphoneCode: '+33', tutoraffiliation: '',
     job: '', tall: '', ethnicity: '', body_type: '',
     salafy: '', hijra: '', practice_religion_years: 0, dress_code_text: '', scholars: '', madhab: '', prayer_level: '',
@@ -256,6 +256,10 @@ onMounted(async () => {
                                     <input type="text" v-model="data.city" class="field-input-re" placeholder="Ex : Paris, Lyon, Bruxelles..." />
                                 </div>
                                 <div class="col-span-2">
+                                    <label class="field-label-re block mb-1.5">Mosquée fréquentée <span class="text-[#ff6b6b]">*</span></label>
+                                    <input type="text" v-model="data.mosque_name" class="field-input-re" placeholder="Ex : Mosquée de Paris, Mosquée Al-Fath..." />
+                                </div>
+                                <div class="col-span-2">
                                     <label class="field-label-re block mb-1.5">WhatsApp <span class="text-[#ff6b6b]">*</span> <span v-if="gender === 'female'" class="text-[#9CA3AF] font-normal">(optionnel)</span></label>
                                     <div class="flex gap-2">
                                         <select v-model="data.whatsappCode" class="field-input-re !w-32">
@@ -283,6 +287,15 @@ onMounted(async () => {
                                         <option v-for="c in countries" :key="c.name">{{ c.name }}</option>
                                     </select>
                                 </div>
+                                <div class="col-span-2">
+                                    <label class="field-label-re block mb-1.5">Accepte de domicilier <span class="text-[#ff6b6b]">*</span></label>
+                                    <div class="grid grid-cols-2 gap-2.5">
+                                        <button @click="data.relocation_acceptance = 'Oui'" :class="pill(data.relocation_acceptance === 'Oui')">Oui</button>
+                                        <button @click="data.relocation_acceptance = 'Non'" :class="pill(data.relocation_acceptance === 'Non')">Non</button>
+                                        <button @click="data.relocation_acceptance = 'A proximite'" :class="pill(data.relocation_acceptance === 'A proximite')">À proximité</button>
+                                        <button @click="data.relocation_acceptance = 'A discuter'" :class="pill(data.relocation_acceptance === 'A discuter')">À discuter</button>
+                                    </div>
+                                </div>
                                 <div>
                                     <label class="field-label-re block mb-1.5">Langue principale <span class="text-[#ff6b6b]">*</span></label>
                                     <div class="grid grid-cols-2 gap-2">
@@ -302,6 +315,12 @@ onMounted(async () => {
                             <div class="grid grid-cols-2 gap-2.5">
                                 <button v-for="m in maritalOptions" :key="m" @click="data.maritial_status = m.toLowerCase()" :class="pill(data.maritial_status === m.toLowerCase())">{{ m }}</button>
                             </div>
+                        </div>
+
+                        <!-- Divorce Count (if divorced) -->
+                        <div v-if="data.maritial_status === 'divorcé' || data.maritial_status === 'divorced'">
+                            <label class="field-label-re block mb-1.5">Si divorcé(e), combien de fois ? <span class="text-[#9CA3AF] font-normal">(optionnel)</span></label>
+                            <input type="number" v-model="data.divorce_count" min="1" max="10" class="field-input-re text-center" placeholder="Ex : 1, 2, 3..." />
                         </div>
 
                         <div v-if="gender === 'female'">
