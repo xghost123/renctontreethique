@@ -147,7 +147,7 @@ class Biodata extends Model
         'has_tutor', 'tutorname', 'tutorphone', 'tutoraffiliation',
         'job', 'tall', 'ethnicity', 'body_type',
         'salafy', 'hijra', 'practice_religion_years', 'dress_code_text', 'scholars',
-        'health', 'occult', 'prohibitive_criteria',
+        'health', 'occult', 'bio', 'looking_for', 'prohibitive_criteria',
         'is_terms_accepted', 'profilstatus',
     ];
 

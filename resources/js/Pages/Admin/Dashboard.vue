@@ -3,6 +3,7 @@ import { ref, onMounted, computed } from 'vue';
 import { Link, usePage, Head } from '@inertiajs/vue3';
 import AdminLayout from '../../Layouts/AdminLayout.vue';
 import Header from '../../Components/Admin/Header.vue';
+import Navigation from '../../Components/Admin/Navigation.vue';
 
 defineProps({
     translations: Object,
@@ -58,10 +59,11 @@ const maxValue = computed(() => Math.max(...chartData.value.thisWeek, ...chartDa
         <Head title="Admin Dashboard - Rencontre Éthique" />
         
         <div class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+            <Navigation />
             <Header :translations :locale :locales :canLogin :canRegister />
             
             <!-- Main Content -->
-            <div class="container max-w-7xl mx-auto px-6 py-12">
+            <div class="lg:ml-64 container max-w-7xl mx-auto px-6 py-12">
                 
                 <!-- Page Header -->
                 <div class="mb-12">
