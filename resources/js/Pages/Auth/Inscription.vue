@@ -108,7 +108,7 @@ const togglePersonalityTrait = (traitId) => {
 };
 
 const submit = () => {
-    form.post(route('inscription.store'), {
+    form.post(route('register'), {
         onFinish: () => form.reset(),
     });
 };

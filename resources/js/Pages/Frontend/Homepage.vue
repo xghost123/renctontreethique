@@ -46,7 +46,7 @@
 
         <!-- Primary CTA -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-delay">
-          <button class="premium-btn btn-primary group relative px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+          <Link :href="route('register')" class="premium-btn btn-primary group relative px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 inline-flex items-center">
             <span class="relative z-10 flex items-center gap-2">
               Créer mon profil gratuitement
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
@@ -54,10 +54,10 @@
               </svg>
             </span>
             <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
-          <button class="premium-btn btn-secondary px-10 py-4 text-lg font-semibold text-sapphire-blue border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5">
+          </Link>
+          <Link :href="route('frontend.terms')" class="premium-btn btn-secondary px-10 py-4 text-lg font-semibold text-white border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5 inline-flex items-center">
             En Savoir Plus
-          </button>
+          </Link>
         </div>
 
         <!-- Scroll Indicator -->
@@ -395,7 +395,7 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
-              <button class="premium-btn btn-primary-large group relative px-12 py-5 text-xl font-bold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+              <Link :href="route('register')" class="premium-btn btn-primary-large group relative px-12 py-5 text-xl font-bold text-white bg-gradient-to-r from-pink-500 to-red-600 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
                 <span class="relative z-10 flex items-center justify-center gap-2">
                   Créer mon profil gratuitement
                   <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
@@ -403,10 +403,10 @@
                   </svg>
                 </span>
                 <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <button class="premium-btn btn-secondary-large px-12 py-5 text-xl font-bold text-sapphire-blue border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5">
+              </Link>
+              <Link :href="route('frontend.terms')" class="premium-btn btn-secondary-large px-12 py-5 text-xl font-bold text-white border-2 border-white rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-md bg-white/5 inline-flex items-center justify-center">
                 En Savoir Plus
-              </button>
+              </Link>
             </div>
 
             <!-- Trust badges -->
@@ -507,8 +507,13 @@
 </template>
 
 <script>
+import { Link } from '@inertiajs/vue3';
+
 export default {
   name: 'Homepage',
+  components: {
+    Link,
+  },
   data() {
     return {
       scrollY: 0,
