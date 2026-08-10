@@ -75,12 +75,25 @@ const prevStep = () => {
 const submit = async () => {
     if (canProceedToNextStep.value) {
         isSubmitting.value = true;
-        await form.post(route('register'), {
+        // Create clean payload - only send fields backend expects
+        const cleanData = {
+            email: form.email,
+            mobile: form.mobile,
+            password: form.password,
+            password_confirmation: form.password_confirmation,
+        };
+        
+        // Use a clean form object to post only required fields
+        const cleanForm = useForm(cleanData);
+        
+        await cleanForm.post(route('register'), {
             onSuccess: () => {
                 isSubmitting.value = false;
             },
-            onError: () => {
+            onError: (errors) => {
                 isSubmitting.value = false;
+                // Copy errors back to main form for display
+                form.errors = errors;
             }
         });
     }
