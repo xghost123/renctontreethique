@@ -36,12 +36,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
+            'name' => 'required|string|min:3|max:100',
             'email' => 'required|string|lowercase|email:rfc,dns|max:100|unique:' . User::class,
             'mobile' => 'required|string|min:11|max:11|regex:/(01)[0-9]{9}/|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()->min(6)->max(20)],
         ]);
 
         $user = User::create([
+            'name' => $validated['name'],
             'email' => $validated['email'],
             'mobile' => $validated['mobile'],
             'password' => Hash::make($validated['password']),

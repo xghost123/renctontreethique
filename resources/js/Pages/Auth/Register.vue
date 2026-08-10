@@ -37,7 +37,7 @@ const progressPercent = computed(() => (currentStep.value / totalSteps) * 100);
 const canProceedToNextStep = computed(() => {
     switch (currentStep.value) {
         case 1: return form.gender.length > 0;
-        case 2: return form.email.length > 0 && isValidEmail(form.email) && form.mobile.length === 11 && /^01[0-9]{9}$/.test(form.mobile);
+        case 2: return form.email.length > 0 && isValidEmail(form.email) && form.mobile.length === 11 && /^01[0-9]{9}$/.test(form.mobile) && form.name.length > 2;
         case 3: return form.password.length >= 8 && form.password === form.password_confirmation;
         case 4: return form.agree_terms && form.agree_privacy;
         default: return false;
@@ -77,6 +77,7 @@ const submit = async () => {
         isSubmitting.value = true;
         // Create clean payload - only send fields backend expects
         const cleanData = {
+            name: form.name,
             email: form.email,
             mobile: form.mobile,
             password: form.password,
@@ -235,7 +236,35 @@ onMounted(() => {
                 <div v-if="currentStep === 2" class="step-content" :class="{ 'animating-out': animatingOut }">
                     <div class="step-header">
                         <h2 class="step-title">Vos coordonnées</h2>
-                        <p class="step-description">Email et numéro de téléphone</p>
+                        <p class="step-description">Nom, email et numéro de téléphone</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nom complet</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <input 
+                                id="name"
+                                v-model="form.name" 
+                                type="text" 
+                                placeholder="Prénom Nom" 
+                                class="luxury-input"
+                                autocomplete="name"
+                                minlength="3"
+                            />
+                        </div>
+                        <div v-if="form.name.length > 0" class="name-validation">
+                            <svg v-if="form.name.length > 2" viewBox="0 0 24 24" fill="currentColor" class="validation-icon valid">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            <svg v-else viewBox="0 0 24 24" fill="currentColor" class="validation-icon invalid">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                        </div>
+                        <span v-if="form.errors.name" class="field-error">{{ form.errors.name }}</span>
                     </div>
 
                     <div class="form-group">
