@@ -35,31 +35,30 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'mobile' => $request->email ? 'nullable|string|min:11|max:11|regex:/(01)[0-9]{9}/|unique:'.User::class : 'required|string|min:11|max:11|regex:/(01)[0-9]{9}/|unique:'.User::class,
-            'email' => $request->mobile ? 'nullable|string|lowercase|email:rfc,dns|max:100|unique:'.User::class : 'required|string|lowercase|email:rfc,dns|max:100|unique:'.User::class,
+        $validated = $request->validate([
+            'email' => 'required|string|lowercase|email:rfc,dns|max:100|unique:' . User::class,
+            'mobile' => 'required|string|min:11|max:11|regex:/(01)[0-9]{9}/|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()->min(6)->max(20)],
         ]);
 
         $user = User::create([
-            'mobile' => $request->mobile,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'email' => $validated['email'],
+            'mobile' => $validated['mobile'],
+            'password' => Hash::make($validated['password']),
         ]);
 
-        if( $user ){
+        if ($user) {
             $biodata = new Biodata();
             $biodata->user_id = $user->id;
-            $biodata->biodata_code = mt_rand(100000,999999) . '-' . uniqid();
-            $biodata->user_mobile = $request->mobile;
-            $biodata->user_email = $request->email;
+            $biodata->biodata_code = mt_rand(100000, 999999) . '-' . uniqid();
+            $biodata->user_mobile = $validated['mobile'];
+            $biodata->user_email = $validated['email'];
             $biodata->save();
 
-            if( $biodata ){
+            if ($biodata) {
                 event(new Registered($user));
                 Auth::login($user);
             }
-
         }
 
         return redirect(route('profile.status', absolute: false));

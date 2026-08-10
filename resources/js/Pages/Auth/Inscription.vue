@@ -113,13 +113,24 @@ const togglePersonalityTrait = (traitId) => {
 };
 
 const submit = () => {
-    // Only send fields that the backend expects
-    form.post(route('register'), {
+    // Create clean payload - only send fields the backend expects
+    const cleanForm = useForm({
+        email: form.email,
+        mobile: form.mobile,
+        password: form.password,
+        password_confirmation: form.password_confirmation,
+    });
+    
+    cleanForm.post(route('register'), {
         preserveScroll: true,
         onError: (errors) => {
             console.error('Registration errors:', errors);
+            // Copy errors back to main form for display
+            form.errors = errors;
         },
-        onFinish: () => form.reset(),
+        onSuccess: () => {
+            console.log('Registration successful!');
+        },
     });
 };
 
