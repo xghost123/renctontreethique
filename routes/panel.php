@@ -12,3 +12,11 @@ Route::prefix('panel')->middleware(['web', 'auth:web', EnsureAdmin::class])->gro
         ]);
     })->name('panel.dashboard');
 });
+
+// User analytics dashboard
+Route::get('/app/analytics', function () {
+    return Inertia::render('User/Analytics', [
+        'csrf_token' => csrf_token(),
+    ]);
+})->middleware(['web', 'auth:web'])->name('analytics');
+

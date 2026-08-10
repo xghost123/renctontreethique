@@ -11,6 +11,13 @@ class NotificationPreference extends Model
 
     protected $fillable = [
         'user_id',
+        'email_registration',
+        'email_on_registration',
+        'email_on_biodata_status',
+        'email_on_proposal',
+        'email_on_proposal_response',
+        'email_on_message',
+        'email_on_like',
         'email_proposal_created',
         'email_message_received',
         'email_profile_approved',
@@ -25,6 +32,13 @@ class NotificationPreference extends Model
     ];
 
     protected $casts = [
+        'email_registration' => 'boolean',
+        'email_on_registration' => 'boolean',
+        'email_on_biodata_status' => 'boolean',
+        'email_on_proposal' => 'boolean',
+        'email_on_proposal_response' => 'boolean',
+        'email_on_message' => 'boolean',
+        'email_on_like' => 'boolean',
         'email_proposal_created' => 'boolean',
         'email_message_received' => 'boolean',
         'email_profile_approved' => 'boolean',

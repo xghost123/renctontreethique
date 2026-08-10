@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SavedSearchController;
+use App\Http\Controllers\AnalyticsController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -41,6 +43,16 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/{id}', [SavedSearchController::class, 'destroy']);
     });
 
+    // Conversation routes
+    Route::prefix('conversations')->group(function () {
+        Route::get('/', [ConversationController::class, 'index']);
+        Route::post('/', [ConversationController::class, 'store']);
+        Route::get('/search', [ConversationController::class, 'search']);
+        Route::get('/unread-count', [ConversationController::class, 'unreadCount']);
+        Route::get('/{id}', [ConversationController::class, 'show']);
+        Route::put('/{id}/close', [ConversationController::class, 'close']);
+    });
+
     // Message routes - 1-on-1 chat API
     Route::prefix('messages')->group(function () {
         // Send a message
@@ -63,6 +75,18 @@ Route::middleware('auth:sanctum')->group(function () {
         
         // Flag a message for moderation
         Route::post('/{id}/flag', [MessageController::class, 'flag']);
+    });
+
+    // Analytics routes
+    Route::prefix('analytics')->group(function () {
+        Route::get('/profile-views', [AnalyticsController::class, 'profileViews']);
+        Route::get('/likes', [AnalyticsController::class, 'likes']);
+        Route::get('/messages', [AnalyticsController::class, 'messages']);
+        Route::get('/proposals', [AnalyticsController::class, 'proposals']);
+        Route::get('/activity-heatmap', [AnalyticsController::class, 'activityHeatmap']);
+        Route::get('/demographics', [AnalyticsController::class, 'demographics']);
+        Route::get('/profile-completion', [AnalyticsController::class, 'profileCompletion']);
+        Route::get('/summary', [AnalyticsController::class, 'summary']);
     });
 });
 
