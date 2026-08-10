@@ -15,11 +15,11 @@ const currentStep = ref(1);
 const totalSteps = 4;
 
 const form = useForm({
-    // Step 1
+    // Step 1: Gender & Intention (UI only, won't be sent to backend)
     gender: '',
     commitment: false,
     
-    // Step 2
+    // Step 2: Personal Info (UI only, collected for future biodata creation)
     name: '',
     age: '',
     location: '',
@@ -28,14 +28,18 @@ const form = useForm({
     education: '',
     bio: '',
     
-    // Step 3
+    // Step 3: Preferences (UI only, for future matching)
     ageMin: 18,
     ageMax: 65,
     locationPreference: '',
     educationPreference: '',
     personalityTraits: [],
     
-    // Step 4
+    // Step 4: Registration fields (ACTUALLY SENT TO BACKEND)
+    email: '',
+    mobile: '',
+    password: '',
+    password_confirmation: '',
     termsAccepted: false,
 });
 
@@ -81,7 +85,8 @@ const canProceedToNextStep = computed(() => {
     } else if (currentStep.value === 3) {
         return form.ageMin && form.ageMax && form.locationPreference && form.educationPreference && form.personalityTraits.length > 0;
     } else if (currentStep.value === 4) {
-        return form.termsAccepted;
+        // Validate registration fields
+        return form.email && form.mobile && form.password && form.password_confirmation && form.password === form.password_confirmation && form.termsAccepted;
     }
     return true;
 });
@@ -108,7 +113,12 @@ const togglePersonalityTrait = (traitId) => {
 };
 
 const submit = () => {
+    // Only send fields that the backend expects
     form.post(route('register'), {
+        preserveScroll: true,
+        onError: (errors) => {
+            console.error('Registration errors:', errors);
+        },
         onFinish: () => form.reset(),
     });
 };
@@ -446,6 +456,59 @@ const stepTitles = [
 
                         <!-- Terms Acceptance -->
                         <div class="form-section terms-section">
+                            <!-- Email Input -->
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input
+                                    id="email"
+                                    v-model="form.email"
+                                    type="email"
+                                    class="form-input"
+                                    placeholder="votre.email@example.com"
+                                    required
+                                />
+                            </div>
+
+                            <!-- Mobile Input -->
+                            <div class="form-group">
+                                <label for="mobile" class="form-label">Numéro de téléphone (11 chiffres)</label>
+                                <input
+                                    id="mobile"
+                                    v-model="form.mobile"
+                                    type="tel"
+                                    class="form-input"
+                                    placeholder="01XXXXXXXXX"
+                                    maxlength="11"
+                                    required
+                                />
+                            </div>
+
+                            <!-- Password Input -->
+                            <div class="form-group">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input
+                                    id="password"
+                                    v-model="form.password"
+                                    type="password"
+                                    class="form-input"
+                                    placeholder="Au moins 6 caractères"
+                                    required
+                                />
+                            </div>
+
+                            <!-- Password Confirmation Input -->
+                            <div class="form-group">
+                                <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+                                <input
+                                    id="password_confirmation"
+                                    v-model="form.password_confirmation"
+                                    type="password"
+                                    class="form-input"
+                                    placeholder="Confirmer votre mot de passe"
+                                    required
+                                />
+                            </div>
+
                             <label class="checkbox-wrapper large-checkbox">
                                 <input
                                     type="checkbox"
