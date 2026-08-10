@@ -83,19 +83,29 @@ const submit = async () => {
             password_confirmation: form.password_confirmation,
         };
         
+        console.log('Submitting registration with data:', cleanData);
+        
         // Use a clean form object to post only required fields
         const cleanForm = useForm(cleanData);
         
-        await cleanForm.post(route('register'), {
-            onSuccess: () => {
+        cleanForm.post(route('register'), {
+            onSuccess: (page) => {
+                console.log('Registration successful, redirecting...', page);
                 isSubmitting.value = false;
             },
             onError: (errors) => {
+                console.error('Registration error:', errors);
                 isSubmitting.value = false;
+                // Display errors clearly
+                if (errors.email) alert('Email error: ' + errors.email);
+                if (errors.mobile) alert('Mobile error: ' + errors.mobile);
+                if (errors.password) alert('Password error: ' + errors.password);
                 // Copy errors back to main form for display
                 form.errors = errors;
             }
         });
+    } else {
+        console.warn('Cannot proceed - validation failed');
     }
 };
 
