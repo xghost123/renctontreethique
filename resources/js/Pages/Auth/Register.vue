@@ -100,12 +100,25 @@ const submit = async () => {
             onError: (errors) => {
                 console.error('Registration error:', errors);
                 isSubmitting.value = false;
-                // Display errors clearly
-                if (errors.email) alert('Email error: ' + errors.email);
-                if (errors.mobile) alert('Mobile error: ' + errors.mobile);
-                if (errors.password) alert('Password error: ' + errors.password);
-                // Copy errors back to main form for display
-                form.errors = errors;
+                
+                // Handle different error types
+                if (errors && typeof errors === 'object') {
+                    // Validation errors (422)
+                    const errorMessages = Object.entries(errors)
+                        .map(([field, message]) => `${field}: ${message}`)
+                        .join('\n');
+                    alert('Erreur de validation:\n\n' + errorMessages);
+                    form.errors = errors;
+                } else {
+                    // Server errors (500, timeout, etc.)
+                    alert('Une erreur serveur s\'est produite. Veuillez réessayer.');
+                    console.error('Server error response:', errors);
+                }
+            },
+            onFinish: () => {
+                // Ensure button is always reset, even on timeout or other failures
+                isSubmitting.value = false;
+                console.log('Request finished');
             }
         });
     } else {
