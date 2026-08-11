@@ -37,7 +37,7 @@ const progressPercent = computed(() => (currentStep.value / totalSteps) * 100);
 const canProceedToNextStep = computed(() => {
     switch (currentStep.value) {
         case 1: return form.gender.length > 0;
-        case 2: return form.email.length > 0 && isValidEmail(form.email) && form.mobile.length === 11 && /^01[0-9]{9}$/.test(form.mobile) && form.name.length > 2;
+        case 2: return form.email.length > 0 && isValidEmail(form.email) && /^0[1-9][0-9]{8}$/.test(form.mobile) && form.name.length > 2;
         case 3: return form.password.length >= 8 && form.password === form.password_confirmation;
         case 4: return form.agree_terms && form.agree_privacy;
         default: return false;
@@ -77,11 +77,14 @@ const submit = async () => {
         isSubmitting.value = true;
         // Create clean payload - only send fields backend expects
         const cleanData = {
+            gender: form.gender,
             name: form.name,
             email: form.email,
             mobile: form.mobile,
             password: form.password,
             password_confirmation: form.password_confirmation,
+            agree_terms: form.agree_terms,
+            agree_privacy: form.agree_privacy,
         };
         
         console.log('Submitting registration with data:', cleanData);
@@ -295,7 +298,7 @@ onMounted(() => {
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="mobile">Téléphone (01XXXXXXXXX)</label>
+                        <label class="form-label" for="mobile">Téléphone (0XXXXXXXXX)</label>
                         <div class="input-wrapper">
                             <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -304,14 +307,14 @@ onMounted(() => {
                                 id="mobile"
                                 v-model="form.mobile" 
                                 type="tel" 
-                                placeholder="01XXXXXXXXX" 
-                                maxlength="11"
+                                placeholder="0612345678" 
+                                maxlength="10"
                                 class="luxury-input"
                                 autocomplete="tel"
                             />
                         </div>
                         <div v-if="form.mobile.length > 0" class="mobile-validation">
-                            <svg v-if="form.mobile.length === 11 && /^01[0-9]{9}$/.test(form.mobile)" viewBox="0 0 24 24" fill="currentColor" class="validation-icon valid">
+                            <svg v-if="form.mobile.length === 10 && /^0[1-9][0-9]{8}$/.test(form.mobile)" viewBox="0 0 24 24" fill="currentColor" class="validation-icon valid">
                                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                             </svg>
                             <svg v-else viewBox="0 0 24 24" fill="currentColor" class="validation-icon invalid">
@@ -437,7 +440,7 @@ onMounted(() => {
                                 class="luxury-checkbox"
                             />
                             <label for="terms" class="checkbox-label">
-                                J'accepte les <a href="#" class="agreement-link">Conditions d'utilisation</a>
+                                J'accepte les <a :href="route('terms')" target="_blank" class="agreement-link">Conditions d'utilisation</a>
                             </label>
                         </div>
 
@@ -449,7 +452,7 @@ onMounted(() => {
                                 class="luxury-checkbox"
                             />
                             <label for="privacy" class="checkbox-label">
-                                J'accepte la <a href="#" class="agreement-link">Politique de confidentialité</a>
+                                J'accepte la <a :href="route('privacy')" target="_blank" class="agreement-link">Politique de confidentialité</a>
                             </label>
                         </div>
 

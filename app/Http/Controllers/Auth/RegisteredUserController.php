@@ -36,10 +36,13 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
+            'gender' => 'required|in:male,female',
             'name' => 'required|string|min:3|max:100',
             'email' => 'required|string|lowercase|email:rfc,dns|max:100|unique:' . User::class,
-            'mobile' => 'required|string|min:11|max:11|regex:/(01)[0-9]{9}/|unique:' . User::class,
+            'mobile' => 'required|string|regex:/^0[1-9][0-9]{8}$/|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()->min(6)->max(20)],
+            'agree_terms' => 'required|boolean|accepted',
+            'agree_privacy' => 'required|boolean|accepted',
         ]);
 
         $user = User::create([
@@ -53,6 +56,7 @@ class RegisteredUserController extends Controller
             $biodata = new Biodata();
             $biodata->user_id = $user->id;
             $biodata->biodata_code = mt_rand(100000, 999999) . '-' . uniqid();
+            $biodata->gender = $validated['gender'];
             $biodata->user_mobile = $validated['mobile'];
             $biodata->user_email = $validated['email'];
             $biodata->save();

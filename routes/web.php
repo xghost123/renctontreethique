@@ -36,8 +36,6 @@ Route::middleware(Localization::class)->group(function(){
 
         Route::get('/', 'homePage')->name('home');
 
-        Route::get('/terms', 'termsPage')->name('terms');
-
         Route::get('/opinions', 'opinionsPage')->name('opinions');
 
         // Route::get('/contact', 'contactPage')->name('contact');
@@ -45,6 +43,10 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/biodata_search', 'biodataSearch')->name('biodata_search');
 
     });
+
+    // Legal pages
+    Route::get('/terms', fn () => Inertia::render('Legal/Terms'))->name('terms');
+    Route::get('/privacy', fn () => Inertia::render('Legal/Privacy'))->name('privacy');
 
 
     // authenticated frontend routes
