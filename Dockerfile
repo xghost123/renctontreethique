@@ -81,7 +81,7 @@ echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting Laravel server..."
 exec php artisan serve --host 0.0.0.0 --port 8000
 EOF
 
-chmod +x /app/start.sh
+RUN chmod +x /app/start.sh
 
 # Start Laravel with migrations
 CMD ["/app/start.sh"]
