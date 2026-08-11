@@ -82,7 +82,7 @@ echo "Starting application server..."
 exec php -S 0.0.0.0:8000 -t public public/index.php
 EOF
 
-chmod +x /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 # Start application with entrypoint
 CMD ["/app/entrypoint.sh"]
