@@ -1,7 +1,8 @@
-# 🗄️ DATABASE TROUBLESHOOTING GUIDE
+# 🗄️ DATABASE TROUBLESHOOTING GUIDE - SQLite
 
 **Issue:** Registration returns HTTP 500 on every valid submission  
-**Root Cause:** Railway Database service is unreachable  
+**Root Cause:** SQLite database file is not persisting on Railway OR not writable  
+**Database:** SQLite (not PostgreSQL/MySQL)  
 **Evidence:** Validation errors never appear, proving DB is never reached
 
 ---
@@ -17,275 +18,289 @@
 4. GET / & /terms → 200 (static pages work fine)
 ```
 
-**Conclusion:** The app connects to static pages but CANNOT connect to the database.
+**Conclusion:** The app cannot read/write to SQLite database on Railway.
 
 ---
 
-## ✅ FIX CHECKLIST
+## ✅ FIX CHECKLIST FOR SQLite
 
-### Step 1: Check Railway Database Service Status
+### Step 1: Verify SQLite Configuration
 
+**In .env:**
 ```bash
-# Visit Railway dashboard
-# https://railway.app/project/YOUR_PROJECT_ID
-
-# Check:
-☐ PostgreSQL/MySQL service is RUNNING (green status)
-☐ Service has NOT run out of credit/quota
-☐ No recent crashes in logs
+DB_CONNECTION=sqlite          ✅ Correct
+DB_DATABASE=database/database.sqlite  ✅ Correct
+# Other DB_* vars commented out    ✅ Correct
 ```
 
-### Step 2: Verify Database Connection Variables
+### Step 2: Check Railway SQLite Storage
+
+**The Problem with SQLite on Railway:**
+- Railway's file system is ephemeral (resets on redeploy)
+- SQLite database file is lost unless stored in persistent volume
+- Need to mount a persistent volume for `database/` directory
 
 **In Railway Dashboard:**
-```
-Settings → Variables → Check:
-☐ DATABASE_URL exists
-☐ DB_CONNECTION = mysql OR postgres (not empty)
-☐ DB_HOST = actual hostname (not localhost!)
-☐ DB_PORT = 3306 (MySQL) or 5432 (PostgreSQL)
-☐ DB_DATABASE = database name
-☐ DB_USERNAME = username
-☐ DB_PASSWORD = password
 
-⚠️ Common mistakes:
-❌ DB_HOST=localhost (won't work on Railway)
-❌ DB_HOST=127.0.0.1 (won't work remotely)
-✅ DB_HOST=postgres.railway.internal (Railway's private network)
-   OR
-✅ DB_HOST=actual-domain.railway.app (public hostname)
+```
+1. Go to your App service
+2. Click "Settings" → "Storage"
+3. Check if there's a mount for /app/database (or similar)
+
+If NOT mounted:
+❌ Database file is lost on redeploy
+❌ Each deployment starts fresh
+❌ Registration data disappears
+
+If mounted:
+✅ Database persists across redeploys
+✅ Data is saved
 ```
 
-### Step 3: Check Current .env Configuration
+### Step 3: Create SQLite Storage Mount on Railway
 
-**On Railway, the app sees:**
+**Option A: Via Railway Dashboard**
+```
+1. App Service → Settings → Storage
+2. Click "New Mount"
+3. Mount Path: /app/database
+4. Volume: Create new volume (or select existing)
+5. Save
+```
+
+**Option B: Via railway.toml (recommended)**
+
+Create/edit `railway.toml` at project root:
+
+```toml
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "php artisan serve --host 0.0.0.0"
+
+[mounts]
+  [mounts.database]
+  path = "/app/database"
+  volume = "sqlite-data"
+
+[variables]
+DB_CONNECTION = "sqlite"
+DB_DATABASE = "/app/database/database.sqlite"
+APP_URL = "https://web-production-aa6669.up.railway.app"
+ASSET_URL = "https://web-production-aa6669.up.railway.app"
+```
+
+### Step 4: Push and Redeploy
+
 ```bash
-# Run this to check what's loaded
-php artisan tinker
->>> config('database.default')
->>> config('database.connections.mysql.host')
->>> config('database.connections.mysql.database')
+git add railway.toml
+git commit -m "Add SQLite persistent storage mount"
+git push origin master
+
+# Railway auto-deploys
+# Database volume is created and mounted
 ```
 
-### Step 4: Test Database Connection
+### Step 5: Run Migrations After Deploy
+
+**On Railway pod:**
+```bash
+railway run php artisan migrate
+# Creates tables in SQLite
+```
+
+### Step 6: Seed Admin Users
 
 ```bash
-# Connect to the pod and test
+railway run php artisan db:seed --class=AdminSeeder
+# Creates test accounts
+```
+
+### Step 7: Test SQLite Connection
+
+```bash
 railway run php artisan tinker
 
-# Inside tinker, try:
+# Inside tinker:
 >>> DB::connection()->getPdo()
-# If it returns a PDO object → DB is connected ✅
-# If it throws error → DB is unreachable ❌
+# Should return PDO object
 
-# Or test with:
 >>> DB::table('users')->count()
-# If it returns a number → DB works ✅
-# If it throws "could not find driver" or timeout → DB is down ❌
+# Should return number (not error)
+
+>>> exit
 ```
 
-### Step 5: Check Database Logs
+---
 
-```bash
-# In Railway Dashboard:
-1. Go to Database service
-2. Click "Logs" tab
-3. Look for:
-   ✅ "connection accepted" = client connected
-   ❌ "connection refused" = DB is down
-   ❌ "timeout" = network issue
+## 🚨 COMMON SQLite ISSUES ON RAILWAY
+
+### Issue A: "Unable to open database file"
+
+```
+Error: SQLSTATE[HY000]: General error: unable to open database file
 ```
 
-### Step 6: Verify Migrations Were Run
+**Causes:**
+1. `/app/database` directory doesn't exist
+2. No write permissions
+3. Volume not mounted
 
+**Fix:**
 ```bash
-# On the deployed app:
+# On Railway pod, check if directory exists:
+railway run ls -la /app/database
+
+# If not exists, create it:
+railway run mkdir -p /app/database
+
+# Set permissions:
+railway run chmod 777 /app/database
+```
+
+### Issue B: "Database file disappears after redeploy"
+
+```
+First request works → Redeploy → 500 error
+(Database file was lost)
+```
+
+**Fix:**
+- Mount persistent volume (see Step 3)
+- Ensure `railway.toml` has `[mounts.database]` section
+
+### Issue C: "Database locked"
+
+```
+Error: database is locked
+```
+
+**Cause:** Multiple processes trying to write simultaneously
+
+**Fix:**
+```bash
+# This is rare in production but check:
+1. Only one app instance is running
+2. No background jobs running
+3. SQLite WAL (write-ahead log) files exist in /app/database/
+
+# Force unlock (dangerous):
+railway run rm /app/database/database.sqlite-wal
+railway run rm /app/database/database.sqlite-shm
+```
+
+### Issue D: "Migrations haven't run"
+
+```
+Error: Table 'users' doesn't exist
+```
+
+**Fix:**
+```bash
+# After deploying, migrations must run:
+railway run php artisan migrate
+
+# Check status:
 railway run php artisan migrate:status
 
-# Should show:
-✅ All migrations with status "Ran"
-
-# If migrations are NOT run:
-railway run php artisan migrate
+# Should show all migrations as "Ran"
 ```
 
 ---
 
-## 🚨 COMMON ISSUES & FIXES
-
-### Issue A: "could not find driver"
-
-```
-Error: SQLSTATE[HY000]: General error: could not find driver
-```
-
-**Fix:**
-```bash
-# The PHP database extension is missing
-# On Railway, reinstall PHP extensions:
-
-# Check Dockerfile or railway.toml has:
-php-mysql    (for MySQL)
-OR
-php-pgsql    (for PostgreSQL)
-```
-
-### Issue B: "Connection timed out"
-
-```
-Error: SQLSTATE[HY000]: General error: could not connect
-```
-
-**Fix:**
-```bash
-# Network connectivity issue
-# Check:
-1. DB_HOST is correct (ask Railway support for exact hostname)
-2. DB_PORT is open and listening
-3. Firewall isn't blocking connection
-
-# Test connectivity:
-railway run curl telnet://DB_HOST:DB_PORT
-```
-
-### Issue C: "Access denied for user"
-
-```
-Error: SQLSTATE[HY000]: General error: Access denied for user 'root'@'localhost'
-```
-
-**Fix:**
-```bash
-# Wrong credentials
-1. Check DB_USERNAME and DB_PASSWORD match Railway credentials
-2. Re-generate password if needed in Railway dashboard
-3. Update DATABASE_URL variable
-```
-
-### Issue D: "Unknown database"
-
-```
-Error: SQLSTATE[42000]: Syntax error: Unknown database 'wrong_db_name'
-```
-
-**Fix:**
-```bash
-# Wrong database name in DB_DATABASE variable
-1. Check actual database name in Railway (usually: db, postgres, etc.)
-2. Update DB_DATABASE variable to match
-3. Redeploy
-```
-
----
-
-## 🔧 QUICK FIX WORKFLOW
-
-**If registration is 500ing:**
+## 🔧 QUICK FIX WORKFLOW FOR SQLite
 
 ```bash
-# 1. SSH into Railway pod
-railway run bash
+# 1. Add railway.toml with SQLite mount
+cat > railway.toml << 'EOF'
+[build]
+builder = "dockerfile"
 
-# 2. Test database connection
-php artisan tinker
->>> DB::connection()->getPdo()
+[deploy]
+startCommand = "php artisan serve --host 0.0.0.0"
 
-# 3. If that fails, check config
-php artisan config:show database
+[mounts]
+  [mounts.database]
+  path = "/app/database"
+  volume = "sqlite-data"
 
-# 4. If variables are wrong, update them
-# (In Railway dashboard or commit to .env.example)
+[variables]
+DB_CONNECTION = "sqlite"
+DB_DATABASE = "/app/database/database.sqlite"
+APP_URL = "https://web-production-aa6669.up.railway.app"
+ASSET_URL = "https://web-production-aa6669.up.railway.app"
+EOF
 
-# 5. If migrations never ran:
-php artisan migrate
+# 2. Commit and push
+git add railway.toml
+git commit -m "Add SQLite persistent storage"
+git push origin master
 
-# 6. If all works, test registration again
-curl -X POST http://localhost:8000/register \
-  -H "Content-Type: application/json" \
-  -d '{"gender":"male","name":"Test","email":"test@test.com","mobile":"0612345678","password":"Test1234","password_confirmation":"Test1234","agree_terms":true,"agree_privacy":true}'
-
-# Should return 302 redirect (success) not 500
-```
-
----
-
-## 📋 WHAT TO DO WHEN DB IS FIXED
-
-Once the database connection works, the registration flow will work immediately because:
-
-✅ Gender field is sent (added today)  
-✅ Terms/Privacy checkboxes are sent (added today)  
-✅ Phone validation is correct (fixed today)  
-✅ Error handling now recovers from 500s (fixed today)  
-✅ Terms & Privacy pages exist and are linked (added today)  
-✅ All validation is in place (frontend + backend)  
-
----
-
-## 🎯 AFTER DATABASE IS UP
-
-Run these commands to prepare:
-
-```bash
-# 1. Apply any pending migrations
+# 3. After redeploy completes, run migrations
 railway run php artisan migrate
 
-# 2. Seed admin users
+# 4. Seed admin users
 railway run php artisan db:seed --class=AdminSeeder
 
-# 3. Clear cache
-railway run php artisan cache:clear
+# 5. Test registration
+curl -X POST https://web-production-aa6669.up.railway.app/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gender":"male",
+    "name":"Test User",
+    "email":"test@example.com",
+    "mobile":"0612345678",
+    "password":"Test1234",
+    "password_confirmation":"Test1234",
+    "agree_terms":true,
+    "agree_privacy":true
+  }'
 
-# 4. Test registration with browser
-# Visit: https://web-production-aa6669.up.railway.app/register
-# Fill form with:
-#   Gender: Male
-#   Name: Test User
-#   Email: test@example.com
-#   Mobile: 0612345678
-#   Password: TestPass123 (x2)
-#   Accept terms & privacy
-#   Click: Créer mon compte
-
-# Should succeed → redirect to /app/status
+# Should return 302 (success) not 500
 ```
 
 ---
 
-## 📞 IF YOU'RE STUCK
+## 📋 SQLite vs PostgreSQL/MySQL
+
+| Aspect | SQLite | PostgreSQL/MySQL |
+|--------|--------|------------------|
+| Setup | ✅ Simple (file) | ❌ Complex (server) |
+| Storage | 📁 Local file | 🖥️ Remote server |
+| Scaling | ❌ Limited | ✅ Scalable |
+| Concurrency | ⚠️ Limited | ✅ Good |
+| Railway | ⚠️ Needs mount | ✅ Service included |
+| Cost | ✅ Free | ⚠️ Paid |
+
+**For Rencontre Éthique:** SQLite is fine for current scale, just need persistent storage mount.
+
+---
+
+## ✅ AFTER FIXING SQLite
+
+Once persistent volume is mounted and migrations run:
+
+```bash
+✅ Registration works
+✅ Admin login works
+✅ All user features work
+✅ Data persists across redeploys
+✅ No database service charges
+```
+
+---
+
+## 📞 IF YOU'RE STILL STUCK
+
+**Check:**
+1. Is `/app/database` mounted in Railway?
+2. Have migrations been run? (`railway run php artisan migrate:status`)
+3. Does `database.sqlite` file exist? (`railway run ls -la /app/database/`)
+4. Can the app write to the directory? (`railway run touch /app/database/test.txt`)
 
 **Contact Railway support with:**
-
-```
-1. Project ID
-2. Database service name
-3. Error message from logs
-4. DATABASE_URL variable (masked password: user:***@host:port/db)
-5. Screenshot of service status dashboard
-```
-
-**Or check:**
-- Railway docs: https://docs.railway.app/deploy/postgres
-- Postgres troubleshooting: https://www.postgresql.org/docs/current/
-- MySQL troubleshooting: https://dev.mysql.com/doc/mysql-apt-repository-quick-start/en/
-
----
-
-## ✅ STATUS AFTER TODAY'S FIXES
-
-**What's fixed:**
-✅ Registration form sends all required fields  
-✅ Error handling recovers on 500 errors  
-✅ Phone validation accepts real French numbers  
-✅ Terms & Privacy pages exist and are linked  
-
-**What's blocked:**
-⛔ Database connection (Railway issue, not code)
-
-**When DB is restored:**
-✅ Users can register immediately  
-✅ All validations work  
-✅ Errors are properly displayed  
-✅ Form recovers on failure  
-
-**The application code is 100% ready for production.**
+- Project ID
+- Storage mounts configuration
+- Console logs from failed migration
+- Output of `railway run ls -la /app/database/`

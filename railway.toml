@@ -1,0 +1,16 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "php artisan serve --host 0.0.0.0"
+
+[mounts]
+  [mounts.database]
+  path = "/app/database"
+  volume = "sqlite-data"
+
+[variables]
+DB_CONNECTION = "sqlite"
+DB_DATABASE = "/app/database/database.sqlite"
+APP_URL = "https://web-production-aa6669.up.railway.app"
+ASSET_URL = "https://web-production-aa6669.up.railway.app"
