@@ -1,14 +1,16 @@
 FROM php:8.2-fpm
 
-# Update apt and install system dependencies
+# Update apt and install ALL system dependencies at once
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    libcurl4-openssl-dev \
     zip \
     unzip \
     sqlite3 \
     libsqlite3-dev \
-    libonig-dev
+    libonig-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions (one by one to avoid conflicts)
 RUN docker-php-ext-install pdo
@@ -24,7 +26,7 @@ RUN docker-php-ext-install fileinfo
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Node.js
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
 # Copy application
 COPY . /app
