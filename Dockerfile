@@ -54,34 +54,35 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
     CMD curl -f http://localhost:8000/ || exit 1
 
-# Create entrypoint script for migrations with logging
-RUN cat > /app/start.sh << 'EOF'
+# Create entrypoint script that sets up and runs the app
+RUN cat > /app/entrypoint.sh << 'EOF'
 #!/bin/bash
 set -e
 
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting Laravel application..."
+echo "Starting Rencontre Éthique application..."
 
 # Set permissions
 chmod -R 777 /app/storage /app/bootstrap/cache /app/database 2>/dev/null || true
 
 # Clear caches
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Clearing config and cache..."
 php artisan config:clear 2>/dev/null || true
 php artisan cache:clear 2>/dev/null || true
 
 # Run migrations
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Running migrations..."
-php artisan migrate --force 2>&1 || echo "Migration warning (may have already run)"
+echo "Running migrations..."
+php artisan migrate --force 2>&1 || echo "Migrations completed or already run"
 
 # Seed admin user
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Seeding admin user..."
-php artisan db:seed --class=AdminSeeder --force 2>&1 || echo "Seeding warning (may have already run)"
+echo "Seeding admin user..."
+php artisan db:seed --class=AdminSeeder --force 2>&1 || echo "Seeding completed or already run"
 
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting Laravel server..."
-exec php artisan serve --host 0.0.0.0 --port 8000
+echo "Starting application server..."
+
+# Use php-fpm with public/index.php as the entry point
+exec php -S 0.0.0.0:8000 -t public public/index.php
 EOF
 
-RUN chmod +x /app/start.sh
+chmod +x /app/entrypoint.sh
 
-# Start Laravel with migrations
-CMD ["/app/start.sh"]
+# Start application with entrypoint
+CMD ["/app/entrypoint.sh"]
