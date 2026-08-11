@@ -47,12 +47,12 @@ RUN chmod -R 777 storage bootstrap/cache database
 # Create database file if it doesn't exist
 RUN touch database/database.sqlite && chmod 666 database/database.sqlite
 
-# Expose port
+# Expose port (dynamic)
 EXPOSE 8000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:8000/ || exit 1
+    CMD curl -f http://localhost:${PORT:-8000}/ || exit 1
 
 # Create entrypoint script that sets up and runs the app
 RUN cat > /app/entrypoint.sh << 'EOF'
@@ -60,6 +60,10 @@ RUN cat > /app/entrypoint.sh << 'EOF'
 set -e
 
 echo "Starting Rencontre Éthique application..."
+
+# Get PORT from environment, default to 8000
+PORT=${PORT:-8000}
+echo "Listening on port $PORT"
 
 # Set permissions
 chmod -R 777 /app/storage /app/bootstrap/cache /app/database 2>/dev/null || true
@@ -76,10 +80,10 @@ php artisan migrate --force 2>&1 || echo "Migrations completed or already run"
 echo "Seeding admin user..."
 php artisan db:seed --class=AdminSeeder --force 2>&1 || echo "Seeding completed or already run"
 
-echo "Starting application server..."
+echo "Starting application server on 0.0.0.0:$PORT..."
 
-# Use php-fpm with public/index.php as the entry point
-exec php -S 0.0.0.0:8000 -t public public/index.php
+# Use PHP built-in server with dynamic PORT
+exec php -S 0.0.0.0:$PORT -t public public/index.php
 EOF
 
 RUN chmod +x /app/entrypoint.sh
