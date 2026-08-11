@@ -1,25 +1,24 @@
 FROM php:8.2-fpm
 
-# Update apt
+# Update apt and install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
     zip \
     unzip \
     sqlite3 \
-    libsqlite3-dev
+    libsqlite3-dev \
+    libonig-dev
 
-# Install PHP extensions
-RUN docker-php-ext-install \
-    pdo \
-    pdo_sqlite \
-    pdo_mysql \
-    mbstring \
-    curl \
-    json \
-    bcmath \
-    ctype \
-    fileinfo
+# Install PHP extensions (one by one to avoid conflicts)
+RUN docker-php-ext-install pdo
+RUN docker-php-ext-install pdo_sqlite
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install mbstring
+RUN docker-php-ext-install curl
+RUN docker-php-ext-install bcmath
+RUN docker-php-ext-install ctype
+RUN docker-php-ext-install fileinfo
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
