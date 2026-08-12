@@ -40,35 +40,35 @@ RUN mkdir -p storage/logs database && \
 # Expose port
 EXPOSE 8000
 
-# Simple startup script
+# Simple startup script - USE PORT ENV VAR!
 RUN cat > /start.sh << 'EOF'
 #!/bin/bash
 set -e
 
+# CRITICAL: Use PORT from environment, default to 8000
+PORT=${PORT:-8000}
+
 echo "=== Starting Rencontre Éthique ==="
+echo "PORT: $PORT"
 echo "Current time: $(date)"
-echo "Working directory: $(pwd)"
 
 # Permissions
-echo "Setting permissions..."
-chmod -R 777 /app/storage /app/bootstrap/cache /app/database
+chmod -R 777 /app/storage /app/bootstrap/cache /app/database 2>/dev/null || true
 
 # Clear caches
-echo "Clearing caches..."
-php artisan config:clear || true
-php artisan cache:clear || true
+php artisan config:clear 2>/dev/null || true
+php artisan cache:clear 2>/dev/null || true
 
 # Migrations
-echo "Running migrations..."
-php artisan migrate --force || true
+php artisan migrate --force 2>&1 || true
 
 # Seeding
-echo "Seeding database..."
-php artisan db:seed --class=AdminSeeder --force || true
+php artisan db:seed --class=AdminSeeder --force 2>&1 || true
 
-echo "=== Starting Laravel development server ==="
-echo "Listening on 0.0.0.0:8000"
-php artisan serve --host=0.0.0.0 --port=8000
+echo "=== Starting Laravel server on 0.0.0.0:$PORT ==="
+
+# CRITICAL: Pass PORT to artisan serve
+exec php artisan serve --host=0.0.0.0 --port=$PORT
 EOF
 
 RUN chmod +x /start.sh
